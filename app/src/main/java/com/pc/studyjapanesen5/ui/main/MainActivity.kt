@@ -1,4 +1,4 @@
-package com.pc.studyjapanesen5.view
+package com.pc.studyjapanesen5.ui.main
 
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.NavHostFragment
@@ -20,10 +20,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     }
 
     private val mainFragmentIdSet =
-        setOf(R.id.homeFragment, R.id.favoriteFragment, R.id.shuffleVocabularyFragment)
+        setOf(R.id.homeFragment, R.id.alphabetFragment, R.id.shuffleVocabularyFragment)
 
     private val blockPopBackStackFragment =
-        setOf(R.id.homeFragment, R.id.favoriteFragment, R.id.shuffleVocabularyFragment)
+        setOf(R.id.homeFragment, R.id.alphabetFragment, R.id.shuffleVocabularyFragment)
 
 
     override fun setupViews() {

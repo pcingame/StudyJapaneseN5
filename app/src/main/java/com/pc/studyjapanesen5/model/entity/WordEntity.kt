@@ -1,4 +1,4 @@
-package com.pc.studyjapanesen5.model
+package com.pc.studyjapanesen5.model.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

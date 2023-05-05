@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/homeFragmentMenu"
+        android:id="@+id/shuffleVocabularyFragment"
+        android:enabled="true"
+        android:icon="@drawable/baseline_shuffle_on_24"
+        android:title="@string/shuffle" />
+    <item
+        android:id="@+id/homeFragment"
         android:enabled="true"
         android:icon="@drawable/baseline_home_24"
         android:title="@string/home" />
     <item
-        android:id="@+id/favoriteFragmentMenu"
+        android:id="@+id/alphabetFragment"
         android:enabled="true"
         android:icon="@drawable/baseline_favorite_24"
-        android:title="@string/favorite" />
-    <item
-        android:id="@+id/shuffleFragmentMenu"
-        android:enabled="true"
-        android:icon="@drawable/baseline_shuffle_on_24"
-        android:title="@string/shuffle" />
+        android:title="@string/alphabet" />
 </menu>

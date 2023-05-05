@@ -1,8 +1,9 @@
-package com.pc.studyjapanesen5.model
+package com.pc.studyjapanesen5.model.dao
 
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Upsert
+import com.pc.studyjapanesen5.model.entity.WordEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

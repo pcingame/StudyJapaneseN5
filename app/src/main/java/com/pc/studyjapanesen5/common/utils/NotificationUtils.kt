@@ -15,7 +15,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.di.App
-import com.pc.studyjapanesen5.view.MainActivity
+import com.pc.studyjapanesen5.ui.main.MainActivity
 
 
 object NotificationUtils {

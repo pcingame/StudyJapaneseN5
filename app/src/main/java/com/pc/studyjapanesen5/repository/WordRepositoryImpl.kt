@@ -1,7 +1,7 @@
 package com.pc.studyjapanesen5.repository
 
 import com.pc.studyjapanesen5.model.AppDatabase
-import com.pc.studyjapanesen5.model.WordEntity
+import com.pc.studyjapanesen5.model.entity.WordEntity
 import kotlinx.coroutines.flow.Flow
 
 

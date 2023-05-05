@@ -6,32 +6,11 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="8dp"
-    tools:context=".view.HomeFragment">
-
-    <EditText
-        android:id="@+id/edtNewWord"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:id="@+id/edtPronoun"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:id="@+id/edtMeaning"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/purple_700"
-        android:text="Add" />
+    tools:context=".ui.home.HomeFragment">
 
     <TextView
         android:id="@+id/list"
+        android:text="あ a"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
