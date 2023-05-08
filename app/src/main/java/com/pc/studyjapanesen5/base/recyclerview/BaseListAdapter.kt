@@ -20,7 +20,7 @@ abstract class BaseListAdapter<T : Any, VH : BaseViewHolder<T>>(
     /**
      * Submit list with DiffUtils
      */
-    override fun submitList(list: MutableList<T>?) {
+    override fun submitList(list: List<T>?) {
         if (list == currentList) {
             notifyList()
             return

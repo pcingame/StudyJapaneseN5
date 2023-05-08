@@ -1,4 +1,4 @@
-package com.pc.studyjapanesen5.repository
+package com.pc.studyjapanesen5.repository.newword
 
 import com.pc.studyjapanesen5.model.entity.WordEntity
 import kotlinx.coroutines.flow.Flow
