@@ -21,6 +21,7 @@ class AlphabetFragment :
     }
 
     private fun setupViewPager() {
+        viewBinding.viewpagerAlphabet.isUserInputEnabled = false
         val alphabetAdapter = AlphabetAdapter(
             this, listOf(
                 HiraganaFragment(),

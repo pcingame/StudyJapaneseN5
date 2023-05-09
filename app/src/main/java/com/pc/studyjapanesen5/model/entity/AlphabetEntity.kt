@@ -11,9 +11,9 @@ data class AlphabetEntity(
     @ColumnInfo(name = "type_character")
     val type: String,
     @ColumnInfo(name = "latin_character")
-    val latin: String,
+    val latin: String? = "",
     @ColumnInfo(name = "hiragana_character")
-    val hiragana: String,
+    val hiragana: String? = "",
     @ColumnInfo(name = "katakana_character")
-    val katakana: String
+    val katakana: String? = "",
 )

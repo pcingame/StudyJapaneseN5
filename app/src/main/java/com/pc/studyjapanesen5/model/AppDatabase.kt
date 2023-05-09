@@ -21,7 +21,7 @@ abstract class AppDatabase : RoomDatabase() {
 
     companion object {
         private const val DB_NAME = "vocabulary_database"
-        private const val ALPHABET_DB = "database/n5_jp_database.db"
+        private const val ALPHABET_DB = "database/n5_jp_db.db"
         const val DATABASE_VERSION = 1
 
         fun build(context: Context): AppDatabase =

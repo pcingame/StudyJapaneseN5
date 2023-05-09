@@ -1,56 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:paddingHorizontal="@dimen/dp_8"
     tools:context=".ui.alphabet.HiraganaFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvLearnHiragana"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/learn_hiragana"
-            android:textColor="@color/black"
-            android:textSize="@dimen/font_size_20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <include
+            android:id="@+id/layoutHiraganaSingle"
+            layout="@layout/single_alphabet_layout" />
 
-        <TextView
-            android:id="@+id/tvKnowWritingSystem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/dp_16"
-            android:paddingTop="@dimen/dp_8"
-            android:text="@string/know_writing_system"
-            android:textColor="@color/black"
-            android:textSize="@dimen/font_size_16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvLearnHiragana" />
+        <include
+            android:id="@+id/layoutHiraganaDakuon"
+            layout="@layout/single_alphabet_layout" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="@dimen/dp_8"
-            android:id="@+id/rcvHiraganaSingle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvKnowWritingSystem"
-            app:spanCount="5"
-            tools:itemCount="30"
-            tools:listitem="@layout/item_alphabet_single" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <include
+            android:id="@+id/layoutHiraganaCombo"
+            layout="@layout/combo_alphabet_layout" />
+
+        <include
+            android:id="@+id/layoutHiraganaSmall"
+            layout="@layout/small_alphabet_layout" />
+
+        <include
+            android:id="@+id/layoutHiraganaLongVowel"
+            layout="@layout/single_alphabet_layout" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
 </androidx.core.widget.NestedScrollView>

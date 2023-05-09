@@ -12,8 +12,7 @@
     <string name="katakana">Katakana</string>
     <string name="a_jp">あ</string>
     <string name="a_latin">a</string>
-    <string name="learn_hiragana">Học bảng chữ cái Hiragana!</string>
-    <string name="learn_katakana">Học bảng chữ cái Katakana!</string>
+    <string name="learn">Học bảng chữ cái %s!</string>
     <string name="know_writing_system">Làm quen với hệ thống chữ viết chính trong tiếng Nhật</string>
 
 
