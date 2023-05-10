@@ -7,7 +7,7 @@
     android:weightSum="2">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvJpHiraganaSingle"
+        android:id="@+id/tvJpSingle"
         android:paddingTop="@dimen/dp_4"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -18,7 +18,7 @@
         android:textSize="@dimen/font_size_20sp" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvLatinHiraganaSingle"
+        android:id="@+id/tvLatinSingle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

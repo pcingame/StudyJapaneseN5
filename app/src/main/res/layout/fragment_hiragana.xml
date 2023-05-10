@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingHorizontal="@dimen/dp_8"
-    tools:context=".ui.alphabet.HiraganaFragment">
+    tools:context=".presentation.alphabet.HiraganaFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"

@@ -7,18 +7,18 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.pc.studyjapanesen5.ui.home.HomeFragment"
+        android:name="com.pc.studyjapanesen5.presentation.home.HomeFragment"
         android:label="fragment_add_vocabulay"
         tools:layout="@layout/fragment_home">
     </fragment>
     <fragment
         android:id="@+id/shuffleVocabularyFragment"
-        android:name="com.pc.studyjapanesen5.ui.shuffle.ShuffleVocabularyFragment"
+        android:name="com.pc.studyjapanesen5.presentation.shuffle.ShuffleVocabularyFragment"
         android:label="fragment_shuffle_vocabulary"
         tools:layout="@layout/fragment_shuffle_vocabulary" />
     <fragment
         android:id="@+id/alphabetFragment"
-        android:name="com.pc.studyjapanesen5.ui.alphabet.AlphabetFragment"
+        android:name="com.pc.studyjapanesen5.presentation.alphabet.AlphabetFragment"
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_alphabet" />
 </navigation>

@@ -4,22 +4,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="@dimen/dp_8"
-    tools:context=".ui.alphabet.KatakanaFragment">
+    tools:context=".presentation.alphabet.KatakanaFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <include
-            android:id="@+id/layoutHiraganaSingle"
+            android:id="@+id/layoutKatakanaSingle"
             layout="@layout/single_alphabet_layout" />
 
         <include
-            android:id="@+id/layoutHiraganaDakuon"
+            android:id="@+id/layoutKatakanaDakuon"
             layout="@layout/single_alphabet_layout" />
 
+        <include
+            android:id="@+id/layoutKatakanaCombo"
+            layout="@layout/combo_alphabet_layout" />
 
+        <include
+            android:id="@+id/layoutKatakanaSmall"
+            layout="@layout/small_alphabet_layout" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <include
+            android:id="@+id/layoutKatakanaLongVowel"
+            layout="@layout/single_alphabet_layout" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.core.widget.NestedScrollView>
