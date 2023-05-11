@@ -6,17 +6,17 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.pc.studyjapanesen5.data.model.AppDatabase.Companion.DATABASE_VERSION
 import com.pc.studyjapanesen5.data.model.dao.AlphabetDao
-import com.pc.studyjapanesen5.data.model.dao.WordDao
+import com.pc.studyjapanesen5.data.model.dao.VocabularyDao
 import com.pc.studyjapanesen5.data.model.entity.AlphabetEntity
-import com.pc.studyjapanesen5.data.model.entity.WordEntity
+import com.pc.studyjapanesen5.data.model.entity.VocabularyEntity
 
 @Database(
-    entities = [WordEntity::class, AlphabetEntity::class],
+    entities = [VocabularyEntity::class, AlphabetEntity::class],
     version = DATABASE_VERSION,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun vocabularyDao(): WordDao
+    abstract fun vocabularyDao(): VocabularyDao
     abstract fun alphabetDao(): AlphabetDao
 
     companion object {

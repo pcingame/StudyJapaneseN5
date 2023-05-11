@@ -8,10 +8,9 @@
     android:padding="8dp"
     tools:context=".presentation.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/list"
-        android:text="あ a"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <ExpandableListView
+            android:id="@+id/expandableListViewVocabulary"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

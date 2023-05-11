@@ -10,9 +10,13 @@
     <string name="default_notification_channel">default_channel</string>
     <string name="hiragana">Hiragana</string>
     <string name="katakana">Katakana</string>
+    <string name="kanji">Kanji</string>
+    <string name="meaning">Ý nghĩa</string>
     <string name="a_jp">あ</string>
     <string name="a_latin">a</string>
     <string name="learn">Học bảng chữ cái %s!</string>
+    <string name="unit_one">Bài 1</string>
+    <string name="unit">Bài %s</string>
     <string name="know_writing_system">Làm quen với hệ thống chữ viết chính trong tiếng Nhật</string>
 
 
