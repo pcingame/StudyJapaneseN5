@@ -4,11 +4,6 @@ import androidx.fragment.app.viewModels
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
 import com.pc.studyjapanesen5.base.recyclerview.SimpleListAdapter
-import com.pc.studyjapanesen5.common.Constant.COMBO_TYPE
-import com.pc.studyjapanesen5.common.Constant.DAKUON_TYPE
-import com.pc.studyjapanesen5.common.Constant.LONG_VOWEL_TYPE
-import com.pc.studyjapanesen5.common.Constant.SINGLE_TYPE
-import com.pc.studyjapanesen5.common.Constant.SMALL_TYPE
 import com.pc.studyjapanesen5.databinding.FragmentHiraganaBinding
 import com.pc.studyjapanesen5.databinding.ItemAlphabetBinding
 import com.pc.studyjapanesen5.domain.model.AlphabetModel
@@ -68,11 +63,7 @@ class HiraganaFragment :
     }
 
     override fun initData() {
-        viewModel.getSingle(SINGLE_TYPE)
-        viewModel.getDakuon(DAKUON_TYPE)
-        viewModel.getCombo(COMBO_TYPE)
-        viewModel.getSmall(SMALL_TYPE)
-        viewModel.getLongVowel(LONG_VOWEL_TYPE)
+        viewModel.getAllJapaneseAlphabet()
     }
 
     override fun observeData() {

@@ -13,9 +13,9 @@
     </fragment>
     <fragment
         android:id="@+id/shuffleVocabularyFragment"
-        android:name="com.pc.studyjapanesen5.presentation.shuffle.ShuffleVocabularyFragment"
+        android:name="com.pc.studyjapanesen5.presentation.shuffle.GameFragment"
         android:label="fragment_shuffle_vocabulary"
-        tools:layout="@layout/fragment_shuffle_vocabulary" />
+        tools:layout="@layout/fragment_game" />
     <fragment
         android:id="@+id/alphabetFragment"
         android:name="com.pc.studyjapanesen5.presentation.alphabet.AlphabetFragment"

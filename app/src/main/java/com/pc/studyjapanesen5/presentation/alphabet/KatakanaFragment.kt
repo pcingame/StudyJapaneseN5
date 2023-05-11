@@ -72,11 +72,7 @@ class KatakanaFragment :
     }
 
     override fun initData() {
-        viewModel.getSingle(SINGLE_TYPE)
-        viewModel.getDakuon(DAKUON_TYPE)
-        viewModel.getCombo(COMBO_TYPE)
-        viewModel.getSmall(SMALL_TYPE)
-        viewModel.getLongVowel(LONG_VOWEL_TYPE)
+        viewModel.getAllJapaneseAlphabet()
     }
 
     override fun observeData() {

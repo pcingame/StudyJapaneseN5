@@ -7,7 +7,7 @@ import com.pc.studyjapanesen5.data.model.entity.AlphabetEntity
 @Dao
 interface AlphabetDao {
 
-    @Query("SELECT * FROM alphabet WHERE type_character = :type")
-    suspend fun getTypeCharacter(type: String): List<AlphabetEntity>
+    @Query("SELECT * FROM alphabet")
+    suspend fun getTypeCharacter(): List<AlphabetEntity>
 
 }

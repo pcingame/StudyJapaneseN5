@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingVertical="@dimen/dp_8"
+    android:paddingHorizontal="@dimen/dp_8"
+    android:layout_height="match_parent">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvUnit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/unit_one"
+        android:textColor="@color/teal_200"
+        android:textSize="@dimen/_20ssp"
+        android:textStyle="bold" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,6 +1,11 @@
 package com.pc.studyjapanesen5.presentation.alphabet
 
 import com.pc.studyjapanesen5.base.BaseViewModel
+import com.pc.studyjapanesen5.common.Constant.COMBO_TYPE
+import com.pc.studyjapanesen5.common.Constant.DAKUON_TYPE
+import com.pc.studyjapanesen5.common.Constant.LONG_VOWEL_TYPE
+import com.pc.studyjapanesen5.common.Constant.SINGLE_TYPE
+import com.pc.studyjapanesen5.common.Constant.SMALL_TYPE
 import com.pc.studyjapanesen5.common.utils.SingleLiveData
 import com.pc.studyjapanesen5.domain.model.AlphabetModel
 import com.pc.studyjapanesen5.domain.usecase.alphabet.GetAlphabetUseCase
@@ -18,63 +23,27 @@ class AlphabetViewModel : BaseViewModel() {
     val alphabetSmall = SingleLiveData<List<AlphabetModel>>()
     val alphabetLongVowel = SingleLiveData<List<AlphabetModel>>()
 
-
-    fun getSingle(type: String) {
-        val params = GetAlphabetUseCase.Input(type)
+    fun getAllJapaneseAlphabet() {
         executeTask {
             mLoading.value = true
-            val single = withContext(Dispatchers.IO) {
-                getAlphabetUseCase(params)
+            val allJapaneseAlphabet = withContext(Dispatchers.IO) {
+                getAlphabetUseCase()
             }
-            alphabetSingle.value = single
-            mLoading.value = false
-        }
-    }
-
-    fun getDakuon(type: String) {
-        val params = GetAlphabetUseCase.Input(type)
-        executeTask {
-            mLoading.value = true
-            val dakuon = withContext(Dispatchers.IO) {
-                getAlphabetUseCase(params)
+            alphabetSingle.value = allJapaneseAlphabet.filter { model ->
+                model.type == SINGLE_TYPE
             }
-            alphabetDakuon.value = dakuon
-            mLoading.value = false
-        }
-    }
-
-    fun getCombo(type: String) {
-        val params = GetAlphabetUseCase.Input(type)
-        executeTask {
-            mLoading.value = true
-            val combo = withContext(Dispatchers.IO) {
-                getAlphabetUseCase(params)
+            alphabetDakuon.value = allJapaneseAlphabet.filter { model ->
+                model.type == DAKUON_TYPE
             }
-            alphabetCombo.value = combo
-            mLoading.value = false
-        }
-    }
-
-    fun getSmall(type: String) {
-        val params = GetAlphabetUseCase.Input(type)
-        executeTask {
-            mLoading.value = true
-            val small = withContext(Dispatchers.IO) {
-                getAlphabetUseCase(params)
+            alphabetCombo.value = allJapaneseAlphabet.filter { model ->
+                model.type == COMBO_TYPE
             }
-            alphabetSmall.value = small
-            mLoading.value = false
-        }
-    }
-
-    fun getLongVowel(type: String) {
-        val params = GetAlphabetUseCase.Input(type)
-        executeTask {
-            mLoading.value = true
-            val longVowel = withContext(Dispatchers.IO) {
-                getAlphabetUseCase(params)
+            alphabetSmall.value = allJapaneseAlphabet.filter { model ->
+                model.type == SMALL_TYPE
             }
-            alphabetLongVowel.value = longVowel
+            alphabetLongVowel.value = allJapaneseAlphabet.filter { model ->
+                model.type == LONG_VOWEL_TYPE
+            }
             mLoading.value = false
         }
     }

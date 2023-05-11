@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class AlphabetModel(
     val id: Int,
-    val type: String,
+    var type: String,
     val latin: String? = null,
     val hiragana: String? = null,
     val katakana: String? = null,

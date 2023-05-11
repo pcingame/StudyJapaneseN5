@@ -4,6 +4,6 @@ import com.pc.studyjapanesen5.domain.model.AlphabetModel
 
 interface AlphabetRepository {
 
-    suspend fun getTypeCharacter(type: String): List<AlphabetModel>
+    suspend fun getTypeCharacter(): List<AlphabetModel>
 
 }
