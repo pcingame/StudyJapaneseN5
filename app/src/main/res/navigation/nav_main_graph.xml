@@ -10,6 +10,9 @@
         android:name="com.pc.studyjapanesen5.presentation.home.HomeFragment"
         android:label="fragment_add_vocabulay"
         tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_detailVocabularyFragment"
+            app:destination="@id/detailVocabularyFragment" />
     </fragment>
     <fragment
         android:id="@+id/shuffleVocabularyFragment"
@@ -21,4 +24,13 @@
         android:name="com.pc.studyjapanesen5.presentation.alphabet.AlphabetFragment"
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_alphabet" />
+    <fragment
+        android:id="@+id/detailVocabularyFragment"
+        android:name="com.pc.studyjapanesen5.presentation.detailVocabulary.DetailVocabularyFragment"
+        android:label="fragment_detail_vocabulary"
+        tools:layout="@layout/fragment_detail_vocabulary">
+        <argument
+            android:name="unit"
+            app:argType="integer" />
+    </fragment>
 </navigation>

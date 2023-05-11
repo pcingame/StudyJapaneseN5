@@ -10,4 +10,8 @@ class VocabularyRepositoryImpl(private val database: AppDatabase) : VocabularyRe
     override suspend fun getAllVocabulary(): List<VocabularyModel> {
         return database.vocabularyDao().getAllVocabulary().map(VocabularyEntity::toModel)
     }
+
+    override suspend fun getVocabularyByUnit(unit: Int): List<VocabularyModel> {
+        return database.vocabularyDao().getVocabularyByUnit(unit).map(VocabularyEntity::toModel)
+    }
 }

@@ -13,7 +13,7 @@ class HomeViewModel : BaseViewModel() {
 
     val itemVocabulary = SingleLiveData<MutableMap<Int, List<VocabularyModel>>>()
     val groupUnit = SingleLiveData<List<Int>>()
-    private val listUnit: MutableList<Int> = mutableListOf()
+    private val listUnit: MutableSet<Int> = mutableSetOf()
 
     fun getAllVocabulary() {
         executeTask {
@@ -23,11 +23,12 @@ class HomeViewModel : BaseViewModel() {
             val vocabularyMap = fullVocabulary.groupBy { vocabularyModel ->
                 vocabularyModel.unit
             }
-            itemVocabulary.value = vocabularyMap.toMutableMap()
-            vocabularyMap.forEach {
+            vocabularyMap.map {
                 listUnit.add(it.key)
             }
-            groupUnit.value = listUnit
+            itemVocabulary.value = vocabularyMap.toMutableMap()
+
+            groupUnit.value = listUnit.toList()
         }
     }
 }

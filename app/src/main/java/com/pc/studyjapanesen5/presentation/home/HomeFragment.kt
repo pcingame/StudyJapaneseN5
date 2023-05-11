@@ -1,19 +1,32 @@
 package com.pc.studyjapanesen5.presentation.home
 
 import androidx.fragment.app.viewModels
+import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
+import com.pc.studyjapanesen5.base.recyclerview.SimpleListAdapter
 import com.pc.studyjapanesen5.databinding.FragmentHomeBinding
-import com.pc.studyjapanesen5.domain.model.VocabularyModel
+import com.pc.studyjapanesen5.databinding.ItemUnitBinding
+import com.pc.studyjapanesen5.presentation.detailVocabulary.DetailVocabularyFragmentArgs
 
 class HomeFragment :
     BaseFragment<FragmentHomeBinding, HomeViewModel>(FragmentHomeBinding::inflate) {
 
     override val viewModel: HomeViewModel by viewModels()
-    private lateinit var vocabularyExpandableListAdapter: VocabularyExpandableListAdapter
-    private lateinit var groupUnit: List<Int>
-    private lateinit var itemVocabulary: MutableMap<Int, List<VocabularyModel>>
+
+    private val unitAdapter by lazy {
+        SimpleListAdapter<ItemUnitBinding, Int>(ItemUnitBinding::inflate) { item, _ ->
+            tvUnit.text = item.toString()
+        }
+    }
 
     override fun setupViews() {
+        viewBinding.rcvUnit.adapter = unitAdapter.apply {
+            onItemClick = { _, position ->
+                val bundle = DetailVocabularyFragmentArgs(position + 1).toBundle()
+                navigate(R.id.detailVocabularyFragment, bundle)
+            }
+        }
+
     }
 
     override fun initData() {
@@ -21,15 +34,8 @@ class HomeFragment :
     }
 
     override fun observeData() {
-        viewModel.itemVocabulary.observe(viewLifecycleOwner) { vocabularyMap ->
-            itemVocabulary = vocabularyMap
-        }
-
         viewModel.groupUnit.observe(viewLifecycleOwner) { unitList ->
-            groupUnit = unitList
-            vocabularyExpandableListAdapter =
-                VocabularyExpandableListAdapter(requireContext(), groupUnit, itemVocabulary)
-            viewBinding.expandableListViewVocabulary.setAdapter(vocabularyExpandableListAdapter)
+            unitAdapter.submitList(unitList)
         }
 
     }
