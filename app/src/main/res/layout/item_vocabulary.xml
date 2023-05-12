@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:paddingVertical="@dimen/dp_8"
-    android:weightSum="3">
+    android:weightSum="3"
+    app:divider="@drawable/divider"
+    app:showDividers="middle">
 
     <TextView
         android:id="@+id/tvVocabulary"
@@ -14,25 +17,27 @@
         android:layout_weight="1"
         android:textColor="@color/purple_700"
         android:textSize="@dimen/_16ssp"
-        tools:text="ANOU" />
+        tools:text="@string/hiragana" />
 
     <TextView
         android:id="@+id/tvKanji"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:paddingHorizontal="@dimen/dp_4"
         android:textColor="@color/purple_200"
         android:textSize="@dimen/_16ssp"
-        tools:text="ANOU" />
+        tools:text="@string/kanji" />
 
     <TextView
         android:id="@+id/tvWordMeaning"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:paddingHorizontal="@dimen/dp_4"
         android:textColor="@color/teal_700"
         android:textSize="@dimen/_16ssp"
-        tools:text="ANOU" />
+        tools:text="@string/meaning" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

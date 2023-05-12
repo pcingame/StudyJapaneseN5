@@ -6,6 +6,7 @@ import com.pc.studyjapanesen5.common.Constant.DAKUON_TYPE
 import com.pc.studyjapanesen5.common.Constant.LONG_VOWEL_TYPE
 import com.pc.studyjapanesen5.common.Constant.SINGLE_TYPE
 import com.pc.studyjapanesen5.common.Constant.SMALL_TYPE
+import com.pc.studyjapanesen5.common.extension.partitions
 import com.pc.studyjapanesen5.common.utils.SingleLiveData
 import com.pc.studyjapanesen5.domain.model.AlphabetModel
 import com.pc.studyjapanesen5.domain.usecase.alphabet.GetAlphabetUseCase
@@ -29,21 +30,18 @@ class AlphabetViewModel : BaseViewModel() {
             val allJapaneseAlphabet = withContext(Dispatchers.IO) {
                 getAlphabetUseCase()
             }
-            alphabetSingle.value = allJapaneseAlphabet.filter { model ->
-                model.type == SINGLE_TYPE
-            }
-            alphabetDakuon.value = allJapaneseAlphabet.filter { model ->
-                model.type == DAKUON_TYPE
-            }
-            alphabetCombo.value = allJapaneseAlphabet.filter { model ->
-                model.type == COMBO_TYPE
-            }
-            alphabetSmall.value = allJapaneseAlphabet.filter { model ->
-                model.type == SMALL_TYPE
-            }
-            alphabetLongVowel.value = allJapaneseAlphabet.filter { model ->
-                model.type == LONG_VOWEL_TYPE
-            }
+            val (single, dakuon, combo, small, longVowel) = allJapaneseAlphabet.partitions(
+                { it.type == SINGLE_TYPE },
+                { it.type == DAKUON_TYPE },
+                { it.type == COMBO_TYPE },
+                { it.type == SMALL_TYPE },
+                { it.type == LONG_VOWEL_TYPE }
+            )
+            alphabetSingle.value = single
+            alphabetDakuon.value = dakuon
+            alphabetCombo.value = combo
+            alphabetSmall.value = small
+            alphabetLongVowel.value = longVowel
             mLoading.value = false
         }
     }

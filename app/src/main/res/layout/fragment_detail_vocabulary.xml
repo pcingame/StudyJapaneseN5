@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/dp_8"
+    android:paddingVertical="@dimen/dp_8"
     tools:context=".presentation.detailVocabulary.DetailVocabularyFragment">
 
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <include
+            android:id="@+id/layoutTitle"
+            layout="@layout/item_vocabulary" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvDetailVocabulary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_vocabulary" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</ScrollView>

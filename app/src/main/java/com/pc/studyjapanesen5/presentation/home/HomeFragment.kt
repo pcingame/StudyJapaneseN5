@@ -15,7 +15,7 @@ class HomeFragment :
 
     private val unitAdapter by lazy {
         SimpleListAdapter<ItemUnitBinding, Int>(ItemUnitBinding::inflate) { item, _ ->
-            tvUnit.text = item.toString()
+            tvUnit.text = getString(R.string.unit, item.toString())
         }
     }
 
