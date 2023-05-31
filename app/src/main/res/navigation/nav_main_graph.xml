@@ -15,10 +15,14 @@
             app:destination="@id/detailVocabularyFragment" />
     </fragment>
     <fragment
-        android:id="@+id/shuffleVocabularyFragment"
-        android:name="com.pc.studyjapanesen5.presentation.shuffle.GameFragment"
+        android:id="@+id/gameFragment"
+        android:name="com.pc.studyjapanesen5.presentation.game.GameFragment"
         android:label="fragment_shuffle_vocabulary"
-        tools:layout="@layout/fragment_game" />
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_shuffleFragment"
+            app:destination="@id/shuffleFragment" />
+    </fragment>
     <fragment
         android:id="@+id/alphabetFragment"
         android:name="com.pc.studyjapanesen5.presentation.alphabet.AlphabetFragment"
@@ -33,4 +37,9 @@
             android:name="unit"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/shuffleFragment"
+        android:name="com.pc.studyjapanesen5.presentation.game.ShuffleFragment"
+        android:label="fragment_shuffle"
+        tools:layout="@layout/fragment_shuffle" />
 </navigation>

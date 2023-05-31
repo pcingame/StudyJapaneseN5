@@ -65,8 +65,10 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(
         // Implement in overing function
     }
 
-    protected open fun observeBase() {
-        // Implement in overing function
+    private fun observeBase() {
+        viewModel.mLoading.observe(viewLifecycleOwner) { shouldLoading ->
+            (activity as? BaseActivity<*>)?.showLoading(shouldLoading)
+        }
     }
 
     protected open fun observeData() {

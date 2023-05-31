@@ -20,10 +20,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     }
 
     private val mainFragmentIdSet =
-        setOf(R.id.homeFragment, R.id.alphabetFragment, R.id.shuffleVocabularyFragment)
+        setOf(R.id.homeFragment, R.id.alphabetFragment, R.id.gameFragment)
 
     private val blockPopBackStackFragment =
-        setOf(R.id.homeFragment, R.id.alphabetFragment, R.id.shuffleVocabularyFragment)
+        setOf(R.id.homeFragment, R.id.alphabetFragment, R.id.gameFragment)
 
 
     override fun setupViews() {
