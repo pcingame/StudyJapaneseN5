@@ -3,16 +3,16 @@
     <item
         android:id="@+id/gameFragment"
         android:enabled="true"
-        android:icon="@drawable/baseline_shuffle_on_24"
+        android:icon="@drawable/question_selector"
         android:title="@string/shuffle" />
     <item
         android:id="@+id/homeFragment"
         android:enabled="true"
-        android:icon="@drawable/baseline_home_24"
+        android:icon="@drawable/home_selector"
         android:title="@string/home" />
     <item
         android:id="@+id/alphabetFragment"
         android:enabled="true"
-        android:icon="@drawable/baseline_favorite_24"
+        android:icon="@drawable/alphabet_selector"
         android:title="@string/alphabet" />
 </menu>

@@ -20,6 +20,8 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/mainBottomNav"
+        app:itemTextColor="@drawable/label_color_nav_bottom_selector"
+        android:background="?android:attr/windowBackground"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/dp_4"
@@ -27,4 +29,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_navigation" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -35,6 +35,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         val appBarConfiguration = AppBarConfiguration(mainFragmentIdSet)
         setupActionBarWithNavController(navController, appBarConfiguration)
         viewBinding.mainBottomNav.setupWithNavController(navController)
+        viewBinding.mainBottomNav.itemIconTintList = null
         navController.addOnDestinationChangedListener { _, destination, _ ->
             val isVisible = destination.id in mainFragmentIdSet
             viewBinding.mainBottomNav.isVisible = isVisible
