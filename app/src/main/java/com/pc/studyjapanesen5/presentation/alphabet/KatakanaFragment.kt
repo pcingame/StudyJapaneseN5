@@ -4,11 +4,7 @@ import androidx.fragment.app.viewModels
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
 import com.pc.studyjapanesen5.base.recyclerview.SimpleListAdapter
-import com.pc.studyjapanesen5.common.Constant.COMBO_TYPE
-import com.pc.studyjapanesen5.common.Constant.DAKUON_TYPE
-import com.pc.studyjapanesen5.common.Constant.LONG_VOWEL_TYPE
-import com.pc.studyjapanesen5.common.Constant.SINGLE_TYPE
-import com.pc.studyjapanesen5.common.Constant.SMALL_TYPE
+import com.pc.studyjapanesen5.common.utils.SoundUtils
 import com.pc.studyjapanesen5.databinding.FragmentKatakanaBinding
 import com.pc.studyjapanesen5.databinding.ItemAlphabetBinding
 import com.pc.studyjapanesen5.domain.model.AlphabetModel
@@ -60,15 +56,35 @@ class KatakanaFragment :
     override fun setupViews() {
         viewBinding.layoutKatakanaSingle.tvLearn.text =
             getString(R.string.learn, getString(R.string.katakana))
-        viewBinding.layoutKatakanaSingle.rcvSingle.adapter = katakanaSingleAdapter
+        viewBinding.layoutKatakanaSingle.rcvSingle.adapter = katakanaSingleAdapter.apply {
+            onItemClick = { it, _ ->
+                SoundUtils.getFileMp3FromAsset(requireContext(), "${it.latin}.mp3")
+            }
+        }
 
-        viewBinding.layoutKatakanaDakuon.rcvSingle.adapter = katakanaDakuonAdapter
+        viewBinding.layoutKatakanaDakuon.rcvSingle.adapter = katakanaDakuonAdapter.apply {
+            onItemClick = { it, _ ->
+                SoundUtils.getFileMp3FromAsset(requireContext(), "${it.latin}.mp3")
+            }
+        }
 
-        viewBinding.layoutKatakanaCombo.rcvSingle.adapter = katakanaComboAdapter
+        viewBinding.layoutKatakanaCombo.rcvSingle.adapter = katakanaComboAdapter.apply {
+            onItemClick = { it, _ ->
+                SoundUtils.getFileMp3FromAsset(requireContext(), "${it.latin}.mp3")
+            }
+        }
 
-        viewBinding.layoutKatakanaSmall.rcvSingle.adapter = katakanaSmallAdapter
+        viewBinding.layoutKatakanaSmall.rcvSingle.adapter = katakanaSmallAdapter.apply {
+            onItemClick = { it, _ ->
+                SoundUtils.getFileMp3FromAsset(requireContext(), "${it.latin}.mp3")
+            }
+        }
 
-        viewBinding.layoutKatakanaLongVowel.rcvSingle.adapter = katakanaLongVowelAdapter
+        viewBinding.layoutKatakanaLongVowel.rcvSingle.adapter = katakanaLongVowelAdapter.apply {
+            onItemClick = { it, _ ->
+                SoundUtils.getFileMp3FromAsset(requireContext(), "${it.latin}.mp3")
+            }
+        }
     }
 
     override fun initData() {

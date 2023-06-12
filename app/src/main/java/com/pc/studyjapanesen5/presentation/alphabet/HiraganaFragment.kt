@@ -4,6 +4,7 @@ import androidx.fragment.app.viewModels
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
 import com.pc.studyjapanesen5.base.recyclerview.SimpleListAdapter
+import com.pc.studyjapanesen5.common.utils.SoundUtils
 import com.pc.studyjapanesen5.databinding.FragmentHiraganaBinding
 import com.pc.studyjapanesen5.databinding.ItemAlphabetBinding
 import com.pc.studyjapanesen5.domain.model.AlphabetModel
@@ -51,15 +52,38 @@ class HiraganaFragment :
     override fun setupViews() {
         viewBinding.layoutHiraganaSingle.tvLearn.text =
             getString(R.string.learn, getString(R.string.hiragana))
-        viewBinding.layoutHiraganaSingle.rcvSingle.adapter = hiraganaSingleAdapter
+        viewBinding.layoutHiraganaSingle.rcvSingle.adapter = hiraganaSingleAdapter.apply {
+            onItemClick = { it, _ ->
+                val latin = if (it.latin?.equals("n/m", true) == true) {
+                    "nm"
+                } else it.latin
+                SoundUtils.getFileMp3FromAsset(requireContext(), "$latin.mp3")
+            }
+        }
 
-        viewBinding.layoutHiraganaDakuon.rcvSingle.adapter = hiraganaDakuonAdapter
+        viewBinding.layoutHiraganaDakuon.rcvSingle.adapter = hiraganaDakuonAdapter.apply {
+            onItemClick = { it, _ ->
+                SoundUtils.getFileMp3FromAsset(requireContext(), "${it.latin}.mp3")
+            }
+        }
 
-        viewBinding.layoutHiraganaCombo.rcvSingle.adapter = hiraganaComboAdapter
+        viewBinding.layoutHiraganaCombo.rcvSingle.adapter = hiraganaComboAdapter.apply {
+            onItemClick = { it, _ ->
+                SoundUtils.getFileMp3FromAsset(requireContext(), "${it.latin}.mp3")
+            }
+        }
 
-        viewBinding.layoutHiraganaSmall.rcvSingle.adapter = hiraganaSmallAdapter
+        viewBinding.layoutHiraganaSmall.rcvSingle.adapter = hiraganaSmallAdapter.apply {
+            onItemClick = { it, _ ->
+                SoundUtils.getFileMp3FromAsset(requireContext(), "${it.latin}.mp3")
+            }
+        }
 
-        viewBinding.layoutHiraganaLongVowel.rcvSingle.adapter = hiraganaLongVowelAdapter
+        viewBinding.layoutHiraganaLongVowel.rcvSingle.adapter = hiraganaLongVowelAdapter.apply {
+            onItemClick = { it, _ ->
+                SoundUtils.getFileMp3FromAsset(requireContext(), "${it.latin}.mp3")
+            }
+        }
     }
 
     override fun initData() {
@@ -86,6 +110,11 @@ class HiraganaFragment :
         viewModel.alphabetLongVowel.observe(viewLifecycleOwner) { alphabet ->
             hiraganaLongVowelAdapter.submitList(alphabet)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        SoundUtils.stopMp3()
     }
 
 }
