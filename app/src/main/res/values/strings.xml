@@ -19,6 +19,10 @@
     <string name="unit">Bài %s: Minna No Nihongo</string>
     <string name="know_writing_system">Làm quen với hệ thống chữ viết chính trong tiếng Nhật</string>
     <string name="home_title">Từ vựng 25 bài Minna No Nihongo</string>
+    <string name="vocabulary">Từ vựng</string>
+    <string name="alphabet_board">Bảng chữ cái</string>
+    <string name="revise">Ôn tập</string>
+    <string name="sound">đọc</string>
 
 
 </resources>
