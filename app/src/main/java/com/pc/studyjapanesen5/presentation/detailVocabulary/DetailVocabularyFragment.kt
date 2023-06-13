@@ -1,33 +1,45 @@
 package com.pc.studyjapanesen5.presentation.detailVocabulary
 
+import android.speech.tts.TextToSpeech
+import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
 import com.pc.studyjapanesen5.base.recyclerview.SimpleListAdapter
+import com.pc.studyjapanesen5.common.extension.click
 import com.pc.studyjapanesen5.databinding.FragmentDetailVocabularyBinding
 import com.pc.studyjapanesen5.databinding.ItemVocabularyBinding
 import com.pc.studyjapanesen5.domain.model.VocabularyModel
 import com.pc.studyjapanesen5.presentation.home.HomeViewModel
+import java.util.Locale
 
 
 class DetailVocabularyFragment :
-    BaseFragment<FragmentDetailVocabularyBinding, HomeViewModel>(FragmentDetailVocabularyBinding::inflate) {
+    BaseFragment<FragmentDetailVocabularyBinding, HomeViewModel>(FragmentDetailVocabularyBinding::inflate),
+    TextToSpeech.OnInitListener {
     override val viewModel: HomeViewModel by viewModels()
     private val args by navArgs<DetailVocabularyFragmentArgs>()
+    private lateinit var textToSpeech: TextToSpeech
 
     private val detailVocabularyAdapter by lazy {
         SimpleListAdapter<ItemVocabularyBinding, VocabularyModel>(ItemVocabularyBinding::inflate) { item, _ ->
             tvVocabulary.text = item.newWord
             tvKanji.text = item.kanji
             tvWordMeaning.text = item.wordMeaning
+            imgSound.click {
+                textToSpeech.speak(item.newWord, TextToSpeech.QUEUE_FLUSH, null, null)
+            }
         }
     }
 
     override fun setupViews() {
+        textToSpeech = TextToSpeech(requireContext(), this)
         viewBinding.layoutTitle.tvVocabulary.text = getString(R.string.hiragana)
         viewBinding.layoutTitle.tvKanji.text = getString(R.string.kanji)
         viewBinding.layoutTitle.tvWordMeaning.text = getString(R.string.meaning)
+        viewBinding.layoutTitle.imgSound.visibility = View.GONE
         viewBinding.rcvDetailVocabulary.adapter = detailVocabularyAdapter
     }
 
@@ -41,4 +53,23 @@ class DetailVocabularyFragment :
         }
     }
 
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            val result = textToSpeech.setLanguage(Locale.JAPAN)
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Toast.makeText(requireContext(), "Language not supported", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        } else {
+            Toast.makeText(requireContext(), "Initialization failed", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (textToSpeech.isSpeaking) {
+            textToSpeech.stop()
+        }
+        textToSpeech.shutdown()
+    }
 }

@@ -4,15 +4,15 @@
         android:id="@+id/gameFragment"
         android:enabled="true"
         android:icon="@drawable/question_selector"
-        android:title="@string/shuffle" />
+        android:title="@string/revise" />
     <item
         android:id="@+id/homeFragment"
         android:enabled="true"
         android:icon="@drawable/home_selector"
-        android:title="@string/home" />
+        android:title="@string/vocabulary" />
     <item
         android:id="@+id/alphabetFragment"
         android:enabled="true"
         android:icon="@drawable/alphabet_selector"
-        android:title="@string/alphabet" />
+        android:title="@string/alphabet_board" />
 </menu>
