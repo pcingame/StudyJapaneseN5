@@ -15,14 +15,15 @@
     <string name="a_jp">あ</string>
     <string name="a_latin">a</string>
     <string name="learn">Học bảng chữ cái %s!</string>
-    <string name="unit_one">Bài 1</string>
-    <string name="unit">Bài %s: Minna No Nihongo</string>
+    <string name="unit_one">1</string>
+    <string name="unit">Minna No Nihongo</string>
     <string name="know_writing_system">Làm quen với hệ thống chữ viết chính trong tiếng Nhật</string>
     <string name="home_title">Từ vựng 25 bài Minna No Nihongo</string>
     <string name="vocabulary">Từ vựng</string>
     <string name="alphabet_board">Bảng chữ cái</string>
     <string name="revise">Ôn tập</string>
     <string name="sound">đọc</string>
+    <string name="unit_number">%s</string>
 
 
 </resources>

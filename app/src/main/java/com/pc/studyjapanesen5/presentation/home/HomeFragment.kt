@@ -5,7 +5,7 @@ import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
 import com.pc.studyjapanesen5.base.recyclerview.SimpleListAdapter
 import com.pc.studyjapanesen5.databinding.FragmentHomeBinding
-import com.pc.studyjapanesen5.databinding.ItemUnitBinding
+import com.pc.studyjapanesen5.databinding.ItemUnitPlusBinding
 import com.pc.studyjapanesen5.presentation.detailVocabulary.DetailVocabularyFragmentArgs
 
 class HomeFragment :
@@ -14,8 +14,8 @@ class HomeFragment :
     override val viewModel: HomeViewModel by viewModels()
 
     private val unitAdapter by lazy {
-        SimpleListAdapter<ItemUnitBinding, Int>(ItemUnitBinding::inflate) { item, _ ->
-            tvUnit.text = getString(R.string.unit, item.toString())
+        SimpleListAdapter<ItemUnitPlusBinding, Int>(ItemUnitPlusBinding::inflate) { item, _ ->
+            tvUnit.text = getString(R.string.unit_number, item.toString())
         }
     }
 
