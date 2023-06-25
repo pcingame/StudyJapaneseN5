@@ -24,6 +24,6 @@
     <string name="revise">Ôn tập</string>
     <string name="sound">đọc</string>
     <string name="unit_number">%s</string>
-
-
+    <string name="alphabet_guess_game">Chọn đúng ký tự cho từ sau:</string>
+    <string name="check">Kiểm tra</string>
 </resources>

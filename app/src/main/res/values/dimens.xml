@@ -595,6 +595,7 @@
     <dimen name="dp_minus_180">-180.00dp</dimen>
 
     <dimen name="_100ssp">100.00sp</dimen>
+    <dimen name="_120ssp">120.00sp</dimen>
     <dimen name="_10ssp">10.00sp</dimen>
     <dimen name="_11ssp">11.00sp</dimen>
     <dimen name="_12ssp">12.00sp</dimen>
