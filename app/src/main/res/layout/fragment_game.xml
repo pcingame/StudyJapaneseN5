@@ -1,17 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="@dimen/dp_12"
+    android:layout_marginTop="@dimen/dp_8"
+    android:layout_marginBottom="@dimen/dp_16"
     android:orientation="vertical"
+    android:weightSum="5"
     tools:context=".presentation.game.GameFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvListGame"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvGameHiragana"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/item_unit" />
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_weight="1"
+        android:background="@drawable/background_btn_check"
+        android:gravity="center"
+        android:text="@string/game_hira"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_24ssp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvGameKatakana"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_weight="1"
+        android:background="@drawable/background_btn_check"
+        android:gravity="center"
+        android:text="@string/game_kata"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_24ssp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvGameAllHiKa"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_weight="1"
+        android:background="@drawable/background_btn_check"
+        android:gravity="center"
+        android:text="@string/game_hi_ka"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_24ssp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvGameSingleVol"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_weight="1"
+        android:background="@drawable/background_btn_check"
+        android:gravity="center"
+        android:text="@string/game_single_vol"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_24ssp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvGameAllVol"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_weight="1"
+        android:background="@drawable/background_btn_check"
+        android:gravity="center"
+        android:text="@string/game_all_vol"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_24ssp"
+        android:textStyle="bold" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

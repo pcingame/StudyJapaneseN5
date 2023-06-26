@@ -11,10 +11,13 @@ import com.pc.studyjapanesen5.databinding.FragmentShuffleBinding
 import com.pc.studyjapanesen5.databinding.ItemAlphabetAnswerBinding
 import com.pc.studyjapanesen5.domain.model.AlphabetModel
 import com.pc.studyjapanesen5.presentation.alphabet.AlphabetViewModel
+import kotlin.random.Random
 
 class ShuffleFragment :
     BaseFragment<FragmentShuffleBinding, AlphabetViewModel>(FragmentShuffleBinding::inflate) {
     override val viewModel: AlphabetViewModel by viewModels()
+   // private val random = Random()
+
     private var characterLatin = ""
     private var itemSelected = ""
     private var rowIndex = -1
@@ -32,22 +35,14 @@ class ShuffleFragment :
         }
         viewBinding.rcvAnswer.adapter = alphabetAnswerAdapter.apply {
             onItemClick = { item, position ->
-                characterLatin = item.latin.toString()
-                rowIndex = position
 
-                if (rowIndex == position) {
-                    layoutItemAnswer.background = ResourcesCompat.getDrawable(
-                        resources,
-                        R.drawable.background_answer_alphabet_select,
-                        null
-                    )
-                } else {
-                    layoutItemAnswer.background = ResourcesCompat.getDrawable(
-                        resources,
-                        R.drawable.background_answer_alphabet_unselect,
-                        null
-                    )
-                }
+                characterLatin = item.latin.toString()
+                layoutItemAnswer.background = ResourcesCompat.getDrawable(
+                    resources,
+                    R.drawable.background_answer_alphabet_select,
+                    null
+                )
+
             }
         }
 
@@ -65,11 +60,18 @@ class ShuffleFragment :
 
     override fun observeData() {
         viewModel.alphabetSingle.observe(viewLifecycleOwner) { list ->
-            val listAnswer = list.take(4)
-            viewBinding.tvQuestion.text = listAnswer.first().latin
+            val listAnswer = list.filter {
+                it.latin != null
+            }.shuffled().take(4)
+
+            viewBinding.tvQuestion.text = listAnswer.shuffled().first().latin
             alphabetAnswerAdapter.submitList(listAnswer)
         }
     }
 
+    data class Answer(
+        val answer: String,
+        val status: Boolean
+    )
 
 }

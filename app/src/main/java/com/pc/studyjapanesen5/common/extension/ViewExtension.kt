@@ -1,5 +1,7 @@
 package com.pc.studyjapanesen5.common.extension
 
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.GradientDrawable
 import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +10,10 @@ import android.view.animation.AnimationUtils
 import androidx.annotation.AnimRes
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
+import com.pc.studyjapanesen5.di.App
 
 private var lastTimeClicked = 0L
 private var lastTimeClickedId = 0
@@ -73,5 +79,31 @@ fun View.setAnimationResource(@AnimRes resId: Int, duration: Long = 250) {
         }
         startAnimation(animation)
     }
+}
+
+fun View.setBackgroundView(
+    strokeWidth: Int,
+    strokeColor: Int,
+    cornersRadius: Float,
+    solidColor: Int
+) {
+    val drawableShape = GradientDrawable()
+    drawableShape.cornerRadius = cornersRadius
+    drawableShape.setStroke(strokeWidth, strokeColor)
+    drawableShape.setColor(solidColor)
+    this?.apply {
+        Glide.with(App.context).load(drawableShape).into(object : CustomTarget<Drawable>() {
+            override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
+                this@setBackgroundView.background = resource
+            }
+
+            override fun onLoadCleared(placeholder: Drawable?) {
+                //do not thing
+            }
+
+        })
+    }
+
+
 }
 

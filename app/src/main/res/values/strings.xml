@@ -26,4 +26,9 @@
     <string name="unit_number">%s</string>
     <string name="alphabet_guess_game">Chọn đúng ký tự cho từ sau:</string>
     <string name="check">Kiểm tra</string>
+    <string name="game_hira">Bảng chữ cái Hiragana</string>
+    <string name="game_kata">Bảng chữ cái Katakana</string>
+    <string name="game_hi_ka">Tổng hợp 2 bảng chữ cái</string>
+    <string name="game_all_vol">Tất cả từ vựng</string>
+    <string name="game_single_vol">Từ vựng theo bài</string>
 </resources>
