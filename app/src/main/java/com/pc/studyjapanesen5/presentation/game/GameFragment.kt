@@ -1,45 +1,28 @@
 package com.pc.studyjapanesen5.presentation.game
 
-import androidx.core.content.res.ResourcesCompat
+import android.util.Log
 import androidx.fragment.app.viewModels
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
-import com.pc.studyjapanesen5.base.recyclerview.SimpleListAdapter
 import com.pc.studyjapanesen5.common.extension.click
-import com.pc.studyjapanesen5.common.extension.setBackgroundView
 import com.pc.studyjapanesen5.databinding.FragmentGameBinding
-import com.pc.studyjapanesen5.databinding.ItemUnitBinding
-import com.pc.studyjapanesen5.presentation.main.MainViewModel
 
 
 class GameFragment :
-    BaseFragment<FragmentGameBinding, MainViewModel>(FragmentGameBinding::inflate) {
+    BaseFragment<FragmentGameBinding, GameViewModel>(FragmentGameBinding::inflate) {
 
-    override val viewModel: MainViewModel by viewModels()
-
-    private var listGame = listOf<String>()
-
-    private val listGameAdapter by lazy {
-        SimpleListAdapter<ItemUnitBinding, String>(ItemUnitBinding::inflate) { item, _ ->
-            tvUnit.text = item
-        }.apply {
-            onItemClick = { _, position ->
-                if (position == 0) {
-                    navigate(R.id.shuffleFragment)
-                }
-            }
-        }
-    }
-
+    override val viewModel: GameViewModel by viewModels()
 
     override fun setupViews() {
-        //viewBinding.rcvListGame.adapter = listGameAdapter
-        //listGame = resources.getStringArray(R.array.list_game).toList()
         setupHiraganaGame()
         setupKatakanaGame()
         setupHiraKataGame()
         setupSingleVolGame()
         setupAllVolGame()
+    }
+
+    override fun initData() {
+        viewModel.getAlphabet()
     }
 
     private fun setupHiraganaGame() {
@@ -62,7 +45,7 @@ class GameFragment :
 
     private fun setupSingleVolGame() {
         viewBinding.tvGameSingleVol.click {
-
+            navigate(R.id.listUnitVocabularyFragment)
         }
     }
 
@@ -74,6 +57,13 @@ class GameFragment :
 
 
     override fun observeData() {
-        //listGameAdapter.submitList(listGame)
+        viewModel.hiraganaAlphabet.observe(viewLifecycleOwner) {
+            val a = it.size
+            Log.d("aaa", "$a ")
+        }
+        viewModel.katakanaAlphabet.observe(viewLifecycleOwner) {
+            val b = it.size
+            Log.d("bbb", "$b")
+        }
     }
 }

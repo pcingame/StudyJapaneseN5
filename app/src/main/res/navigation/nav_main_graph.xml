@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_gameFragment_to_shuffleFragment"
             app:destination="@id/shuffleFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_listUnitVocabularyFragment"
+            app:destination="@id/listUnitVocabularyFragment" />
     </fragment>
     <fragment
         android:id="@+id/alphabetFragment"
@@ -42,4 +45,9 @@
         android:name="com.pc.studyjapanesen5.presentation.game.ShuffleFragment"
         android:label="fragment_shuffle"
         tools:layout="@layout/fragment_shuffle" />
+    <fragment
+        android:id="@+id/listUnitVocabularyFragment"
+        android:name="com.pc.studyjapanesen5.presentation.game.ListUnitVocabularyFragment"
+        android:label="fragment_list_unit_vocabulary"
+        tools:layout="@layout/fragment_list_unit_vocabulary" />
 </navigation>

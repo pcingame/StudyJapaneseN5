@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/layoutItemUnitGame"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/dp_6"
+    android:layout_marginBottom="@dimen/dp_16"
+    android:layout_marginTop="@dimen/dp_16"
+    android:orientation="vertical"
+    >
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvUnitGame"
+        android:background="@drawable/background_border_unit_number_game"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingVertical="@dimen/dp_8"
+        android:text="@string/unit_one"
+        android:fontFamily="@font/jp_font"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_size_20sp" />
+</androidx.appcompat.widget.LinearLayoutCompat>

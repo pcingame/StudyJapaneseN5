@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginBottom="@dimen/dp_16"
+    android:layout_marginHorizontal="@dimen/dp_12"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.game.ListUnitVocabularyFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvUnitGame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:itemCount="25"
+        app:spanCount="5"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        tools:listitem="@layout/item_unit_vocabulary_game" />
+
+</LinearLayout>
