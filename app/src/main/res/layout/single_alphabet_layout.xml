@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvKnowWritingSystem"
+        android:id="@+id/tvKnowWritingSystemDakuon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -40,7 +40,7 @@
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvKnowWritingSystem"
+        app:layout_constraintTop_toBottomOf="@id/tvKnowWritingSystemDakuon"
         app:spanCount="5"
         tools:itemCount="30"
         tools:listitem="@layout/item_alphabet" />

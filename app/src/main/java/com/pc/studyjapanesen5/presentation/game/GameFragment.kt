@@ -33,13 +33,13 @@ class GameFragment :
 
     private fun setupKatakanaGame() {
         viewBinding.tvGameKatakana.click {
-
+            navigate(R.id.shuffleFragment)
         }
     }
 
     private fun setupHiraKataGame() {
         viewBinding.tvGameAllHiKa.click {
-
+            navigate(R.id.shuffleFragment)
         }
     }
 
@@ -51,7 +51,7 @@ class GameFragment :
 
     private fun setupAllVolGame() {
         viewBinding.tvGameAllVol.click {
-
+            navigate(R.id.shuffleFragment)
         }
     }
 

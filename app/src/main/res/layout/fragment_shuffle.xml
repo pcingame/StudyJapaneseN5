@@ -87,6 +87,8 @@
         android:layout_marginBottom="@dimen/dp_12"
         android:background="@drawable/background_btn_check"
         android:text="@string/check"
+        android:textSize="@dimen/_24ssp"
+        android:textColor="@color/white"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
