@@ -2,11 +2,13 @@
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <include layout="@layout/layout_property_title_alphabet"/>
+    <include
+        android:id="@+id/layoutTitleAlphabet"
+        layout="@layout/layout_property_title_alphabet" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvSingle"
@@ -16,6 +18,7 @@
         android:layout_marginHorizontal="@dimen/dp_8"
         android:layout_marginTop="@dimen/dp_8"
         android:orientation="vertical"
+        android:overScrollMode="never"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="3"
         tools:itemCount="30"

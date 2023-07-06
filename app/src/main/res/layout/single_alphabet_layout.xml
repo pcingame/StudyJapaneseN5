@@ -5,30 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvLearn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="@dimen/font_size_20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvKnowWritingSystemDakuon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingHorizontal="@dimen/dp_16"
-        android:paddingTop="@dimen/dp_8"
-        android:text="@string/know_writing_system"
-        android:textColor="@color/black"
-        android:textSize="@dimen/font_size_16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvLearn" />
+    <include
+        android:id="@+id/layoutTitleAlphabet"
+        layout="@layout/layout_property_title_alphabet" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvSingle"
@@ -38,9 +17,10 @@
         android:layout_marginHorizontal="@dimen/dp_8"
         android:layout_marginTop="@dimen/dp_8"
         android:orientation="vertical"
+        android:overScrollMode="never"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvKnowWritingSystemDakuon"
+        app:layout_constraintTop_toBottomOf="@id/layoutTitleAlphabet"
         app:spanCount="5"
         tools:itemCount="30"
         tools:listitem="@layout/item_alphabet" />

@@ -31,4 +31,8 @@
     <string name="game_hi_ka">Tổng hợp 2 bảng chữ cái</string>
     <string name="game_all_vol">Tất cả từ vựng</string>
     <string name="game_single_vol">Từ vựng theo bài</string>
+    <string name="dakuon">Dakuon</string>
+    <string name="combo">Combo</string>
+    <string name="small">Small</string>
+    <string name="long_vowel">Long vowel</string>
 </resources>

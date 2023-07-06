@@ -2,10 +2,16 @@ package com.pc.studyjapanesen5.presentation.alphabet
 
 import android.speech.tts.TextToSpeech
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
 import com.pc.studyjapanesen5.base.recyclerview.SimpleListAdapter
+import com.pc.studyjapanesen5.common.Constant.AlphabetType.COMBO_TYPE
+import com.pc.studyjapanesen5.common.Constant.AlphabetType.DAKUON_TYPE
+import com.pc.studyjapanesen5.common.Constant.AlphabetType.LONG_VOWEL_TYPE
+import com.pc.studyjapanesen5.common.Constant.AlphabetType.SINGLE_TYPE
+import com.pc.studyjapanesen5.common.Constant.AlphabetType.SMALL_TYPE
 import com.pc.studyjapanesen5.databinding.FragmentHiraganaBinding
 import com.pc.studyjapanesen5.databinding.ItemAlphabetBinding
 import com.pc.studyjapanesen5.domain.model.AlphabetModel
@@ -56,36 +62,33 @@ class HiraganaFragment :
 
     override fun setupViews() {
         textToSpeech = TextToSpeech(requireContext(), this)
-
-        viewBinding.layoutHiraganaSingle.tvLearn.text =
-            getString(R.string.learn, getString(R.string.hiragana))
         viewBinding.layoutHiraganaSingle.rcvSingle.adapter = hiraganaSingleAdapter.apply {
-            onItemClick = {item, _ ->
+            onItemClick = { item, _ ->
                 textToSpeech.speak(item.hiragana, TextToSpeech.QUEUE_FLUSH, null, null)
             }
 
         }
 
         viewBinding.layoutHiraganaDakuon.rcvSingle.adapter = hiraganaDakuonAdapter.apply {
-            onItemClick = {item, _ ->
+            onItemClick = { item, _ ->
                 textToSpeech.speak(item.hiragana, TextToSpeech.QUEUE_FLUSH, null, null)
             }
         }
 
         viewBinding.layoutHiraganaCombo.rcvSingle.adapter = hiraganaComboAdapter.apply {
-            onItemClick = {item, _ ->
+            onItemClick = { item, _ ->
                 textToSpeech.speak(item.hiragana, TextToSpeech.QUEUE_FLUSH, null, null)
             }
         }
 
         viewBinding.layoutHiraganaSmall.rcvSingle.adapter = hiraganaSmallAdapter.apply {
-            onItemClick = {item, _ ->
+            onItemClick = { item, _ ->
                 textToSpeech.speak(item.hiragana, TextToSpeech.QUEUE_FLUSH, null, null)
             }
         }
 
         viewBinding.layoutHiraganaLongVowel.rcvSingle.adapter = hiraganaLongVowelAdapter.apply {
-            onItemClick = {item, _ ->
+            onItemClick = { item, _ ->
                 textToSpeech.speak(item.hiragana, TextToSpeech.QUEUE_FLUSH, null, null)
             }
         }
@@ -98,23 +101,76 @@ class HiraganaFragment :
     override fun observeData() {
         viewModel.alphabetSingle.observe(viewLifecycleOwner) { alphabet ->
             hiraganaSingleAdapter.submitList(alphabet)
+            if (alphabet.first().type == SINGLE_TYPE) {
+                setupTitleSingle()
+            }
         }
 
         viewModel.alphabetDakuon.observe(viewLifecycleOwner) { alphabet ->
             hiraganaDakuonAdapter.submitList(alphabet)
+            if (alphabet.first().type == DAKUON_TYPE) {
+                setupTitleDakuon()
+            }
         }
 
         viewModel.alphabetCombo.observe(viewLifecycleOwner) { alphabet ->
             hiraganaComboAdapter.submitList(alphabet)
+            if (alphabet.first().type == COMBO_TYPE) {
+                setupTitleCombo()
+            }
         }
 
         viewModel.alphabetSmall.observe(viewLifecycleOwner) { alphabet ->
             hiraganaSmallAdapter.submitList(alphabet)
+            if (alphabet.first().type == SMALL_TYPE) {
+                setupTitleSmall()
+            }
         }
 
         viewModel.alphabetLongVowel.observe(viewLifecycleOwner) { alphabet ->
             hiraganaLongVowelAdapter.submitList(alphabet)
+            if (alphabet.first().type == LONG_VOWEL_TYPE) {
+                setupTitleLongVowel()
+            }
         }
+    }
+
+    private fun setupTitleSingle() {
+        viewBinding.layoutHiraganaSingle.layoutTitleAlphabet.layoutTitleAlphabetOrigin.isVisible =
+            true
+        viewBinding.layoutHiraganaSingle.layoutTitleAlphabet.layoutTitleDivider.isVisible =
+            false
+        viewBinding.layoutHiraganaSingle.layoutTitleAlphabet.tvDetailType.isVisible = true
+        viewBinding.layoutHiraganaSingle.layoutTitleAlphabet.tvDetailType.text =
+            getString(R.string.learn, getString(R.string.katakana))
+    }
+
+    private fun setupTitleDakuon() {
+        viewBinding.layoutHiraganaDakuon.layoutTitleAlphabet.layoutTitleAlphabetOrigin.isVisible =
+            true
+        viewBinding.layoutHiraganaDakuon.layoutTitleAlphabet.tvTypeAlphabet.text =
+            getString(R.string.dakuon)
+    }
+
+    private fun setupTitleCombo() {
+        viewBinding.layoutHiraganaCombo.layoutTitleAlphabet.layoutTitleAlphabetOrigin.isVisible =
+            true
+        viewBinding.layoutHiraganaCombo.layoutTitleAlphabet.tvTypeAlphabet.text =
+            getString(R.string.combo)
+    }
+
+    private fun setupTitleSmall() {
+        viewBinding.layoutHiraganaSmall.layoutTitleAlphabet.layoutTitleAlphabetOrigin.isVisible =
+            true
+        viewBinding.layoutHiraganaSmall.layoutTitleAlphabet.tvTypeAlphabet.text =
+            getString(R.string.small)
+    }
+
+    private fun setupTitleLongVowel() {
+        viewBinding.layoutHiraganaLongVowel.layoutTitleAlphabet.layoutTitleAlphabetOrigin.isVisible =
+            true
+        viewBinding.layoutHiraganaLongVowel.layoutTitleAlphabet.tvTypeAlphabet.text =
+            getString(R.string.long_vowel)
     }
 
     override fun onInit(status: Int) {
