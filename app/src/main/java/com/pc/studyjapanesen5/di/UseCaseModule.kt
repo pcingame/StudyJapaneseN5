@@ -7,9 +7,9 @@ import org.koin.dsl.module
 
 val useCaseModule = module {
     //alphabet
-    single { GetAlphabetUseCase() }
+    single { GetAlphabetUseCase(get()) }
 
     //vocabulary
-    single { GetVocabularyUseCase() }
-    single { GetDetailVocabularyUseCase() }
+    single { GetVocabularyUseCase(get()) }
+    single { GetDetailVocabularyUseCase(get()) }
 }

@@ -3,7 +3,6 @@ package com.pc.studyjapanesen5.presentation.alphabet
 import android.speech.tts.TextToSpeech
 import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.fragment.app.viewModels
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
 import com.pc.studyjapanesen5.base.recyclerview.SimpleListAdapter
@@ -15,13 +14,14 @@ import com.pc.studyjapanesen5.common.Constant.AlphabetType.SMALL_TYPE
 import com.pc.studyjapanesen5.databinding.FragmentKatakanaBinding
 import com.pc.studyjapanesen5.databinding.ItemAlphabetBinding
 import com.pc.studyjapanesen5.domain.model.AlphabetModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.Locale
 
 class KatakanaFragment :
     BaseFragment<FragmentKatakanaBinding, AlphabetViewModel>(FragmentKatakanaBinding::inflate),
     TextToSpeech.OnInitListener {
 
-    override val viewModel: AlphabetViewModel by viewModels()
+    override val viewModel by viewModel<AlphabetViewModel>()
     private lateinit var textToSpeech: TextToSpeech
 
 

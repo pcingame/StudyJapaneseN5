@@ -1,22 +1,21 @@
 package com.pc.studyjapanesen5.presentation.alphabet
 
 import com.pc.studyjapanesen5.base.BaseViewModel
-import com.pc.studyjapanesen5.common.Constant.COMBO_TYPE
-import com.pc.studyjapanesen5.common.Constant.DAKUON_TYPE
-import com.pc.studyjapanesen5.common.Constant.LONG_VOWEL_TYPE
-import com.pc.studyjapanesen5.common.Constant.SINGLE_TYPE
-import com.pc.studyjapanesen5.common.Constant.SMALL_TYPE
+import com.pc.studyjapanesen5.common.Constant.AlphabetType.COMBO_TYPE
+import com.pc.studyjapanesen5.common.Constant.AlphabetType.DAKUON_TYPE
+import com.pc.studyjapanesen5.common.Constant.AlphabetType.LONG_VOWEL_TYPE
+import com.pc.studyjapanesen5.common.Constant.AlphabetType.SINGLE_TYPE
+import com.pc.studyjapanesen5.common.Constant.AlphabetType.SMALL_TYPE
 import com.pc.studyjapanesen5.common.extension.partitions
 import com.pc.studyjapanesen5.common.utils.SingleLiveData
 import com.pc.studyjapanesen5.domain.model.AlphabetModel
 import com.pc.studyjapanesen5.domain.usecase.alphabet.GetAlphabetUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.koin.core.component.inject
 
-class AlphabetViewModel : BaseViewModel() {
-
-    private val getAlphabetUseCase: GetAlphabetUseCase by inject()
+class AlphabetViewModel(
+    private val getAlphabetUseCase: GetAlphabetUseCase
+) : BaseViewModel() {
 
     val alphabetSingle = SingleLiveData<List<AlphabetModel>>()
     val alphabetDakuon = SingleLiveData<List<AlphabetModel>>()

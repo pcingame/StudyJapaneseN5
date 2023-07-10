@@ -1,17 +1,17 @@
 package com.pc.studyjapanesen5.presentation.game
 
-import androidx.fragment.app.viewModels
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
 import com.pc.studyjapanesen5.base.recyclerview.SimpleListAdapter
 import com.pc.studyjapanesen5.databinding.FragmentListUnitVocabularyBinding
 import com.pc.studyjapanesen5.databinding.ItemUnitVocabularyGameBinding
 import com.pc.studyjapanesen5.presentation.home.HomeViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class ListUnitVocabularyFragment :
     BaseFragment<FragmentListUnitVocabularyBinding, HomeViewModel>(FragmentListUnitVocabularyBinding::inflate) {
-    override val viewModel: HomeViewModel by viewModels()
+    override val viewModel by viewModel<HomeViewModel>()
 
     private val unitListAdapter by lazy {
         SimpleListAdapter<ItemUnitVocabularyGameBinding, Int>(ItemUnitVocabularyGameBinding::inflate) { item, _ ->

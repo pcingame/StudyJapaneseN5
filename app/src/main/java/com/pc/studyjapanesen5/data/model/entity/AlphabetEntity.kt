@@ -3,8 +3,6 @@ package com.pc.studyjapanesen5.data.model.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.pc.studyjapanesen5.domain.mapper.MapAbleToModel
-import com.pc.studyjapanesen5.domain.model.AlphabetModel
 
 @Entity(tableName = "alphabet")
 data class AlphabetEntity(
@@ -19,20 +17,4 @@ data class AlphabetEntity(
     val hiragana: String? = "",
     @ColumnInfo(name = "katakana_character")
     val katakana: String? = "",
-) : MapAbleToModel<AlphabetModel> {
-    constructor(alphabet: AlphabetModel) : this(
-        id = alphabet.id,
-        type = alphabet.type,
-        latin = alphabet.latin,
-        hiragana = alphabet.hiragana,
-        katakana = alphabet.katakana
-    )
-
-    override fun toModel() = AlphabetModel(
-        id = id,
-        type = type,
-        latin = latin,
-        hiragana = hiragana,
-        katakana = katakana
-    )
-}
+)

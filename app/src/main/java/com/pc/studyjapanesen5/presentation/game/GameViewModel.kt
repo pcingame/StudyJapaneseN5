@@ -6,10 +6,10 @@ import com.pc.studyjapanesen5.domain.model.AlphabetModel
 import com.pc.studyjapanesen5.domain.usecase.alphabet.GetAlphabetUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.koin.core.component.inject
 
-class GameViewModel : BaseViewModel() {
-    private val getAlphabetUseCase: GetAlphabetUseCase by inject()
+class GameViewModel(
+    private val getAlphabetUseCase: GetAlphabetUseCase
+) : BaseViewModel() {
 
     val hiraganaAlphabet = SingleLiveData<List<AlphabetModel>>()
     val katakanaAlphabet = SingleLiveData<List<AlphabetModel>>()

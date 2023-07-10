@@ -2,7 +2,6 @@ package com.pc.studyjapanesen5.presentation.game
 
 import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
-import androidx.fragment.app.viewModels
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
 import com.pc.studyjapanesen5.base.recyclerview.SimpleListAdapter
@@ -11,16 +10,14 @@ import com.pc.studyjapanesen5.databinding.FragmentShuffleBinding
 import com.pc.studyjapanesen5.databinding.ItemAlphabetAnswerBinding
 import com.pc.studyjapanesen5.domain.model.AlphabetModel
 import com.pc.studyjapanesen5.presentation.alphabet.AlphabetViewModel
-import kotlin.random.Random
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ShuffleFragment :
     BaseFragment<FragmentShuffleBinding, AlphabetViewModel>(FragmentShuffleBinding::inflate) {
-    override val viewModel: AlphabetViewModel by viewModels()
+    override val viewModel by viewModel<AlphabetViewModel>()
    // private val random = Random()
 
     private var characterLatin = ""
-    private var itemSelected = ""
-    private var rowIndex = -1
 
     private val alphabetAnswerAdapter by lazy {
         SimpleListAdapter<ItemAlphabetAnswerBinding, AlphabetModel>(ItemAlphabetAnswerBinding::inflate) { item, _ ->
@@ -31,7 +28,9 @@ class ShuffleFragment :
     override fun setupViews() {
         super.setupViews()
         viewBinding.btnBackGuessGame.click {
-            navigate(R.id.gameFragment)
+            //navigate(R.id.gameFragment)
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+
         }
         viewBinding.rcvAnswer.adapter = alphabetAnswerAdapter.apply {
             onItemClick = { item, position ->
@@ -68,10 +67,5 @@ class ShuffleFragment :
             alphabetAnswerAdapter.submitList(listAnswer)
         }
     }
-
-    data class Answer(
-        val answer: String,
-        val status: Boolean
-    )
 
 }

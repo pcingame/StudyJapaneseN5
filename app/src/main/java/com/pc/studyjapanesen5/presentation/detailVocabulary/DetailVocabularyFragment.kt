@@ -3,7 +3,6 @@ package com.pc.studyjapanesen5.presentation.detailVocabulary
 import android.speech.tts.TextToSpeech
 import android.view.View
 import android.widget.Toast
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
@@ -13,13 +12,14 @@ import com.pc.studyjapanesen5.databinding.FragmentDetailVocabularyBinding
 import com.pc.studyjapanesen5.databinding.ItemVocabularyBinding
 import com.pc.studyjapanesen5.domain.model.VocabularyModel
 import com.pc.studyjapanesen5.presentation.home.HomeViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.Locale
 
 
 class DetailVocabularyFragment :
     BaseFragment<FragmentDetailVocabularyBinding, HomeViewModel>(FragmentDetailVocabularyBinding::inflate),
     TextToSpeech.OnInitListener {
-    override val viewModel: HomeViewModel by viewModels()
+    override val viewModel by viewModel<HomeViewModel>()
     private val args by navArgs<DetailVocabularyFragmentArgs>()
     private lateinit var textToSpeech: TextToSpeech
 

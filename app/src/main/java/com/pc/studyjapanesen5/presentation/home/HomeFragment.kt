@@ -1,17 +1,17 @@
 package com.pc.studyjapanesen5.presentation.home
 
-import androidx.fragment.app.viewModels
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
 import com.pc.studyjapanesen5.base.recyclerview.SimpleListAdapter
 import com.pc.studyjapanesen5.databinding.FragmentHomeBinding
 import com.pc.studyjapanesen5.databinding.ItemUnitPlusBinding
 import com.pc.studyjapanesen5.presentation.detailVocabulary.DetailVocabularyFragmentArgs
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment :
     BaseFragment<FragmentHomeBinding, HomeViewModel>(FragmentHomeBinding::inflate) {
 
-    override val viewModel: HomeViewModel by viewModels()
+    override val viewModel by viewModel<HomeViewModel>()
 
     private val unitAdapter by lazy {
         SimpleListAdapter<ItemUnitPlusBinding, Int>(ItemUnitPlusBinding::inflate) { item, _ ->

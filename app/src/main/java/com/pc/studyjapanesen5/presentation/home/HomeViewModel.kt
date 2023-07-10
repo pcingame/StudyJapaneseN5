@@ -7,11 +7,11 @@ import com.pc.studyjapanesen5.domain.usecase.vocabulary.GetDetailVocabularyUseCa
 import com.pc.studyjapanesen5.domain.usecase.vocabulary.GetVocabularyUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.koin.core.component.inject
 
-class HomeViewModel : BaseViewModel() {
-    private val getVocabularyUseCase: GetVocabularyUseCase by inject()
-    private val getDetailVocabularyUseCase: GetDetailVocabularyUseCase by inject()
+class HomeViewModel(
+    private val getDetailVocabularyUseCase: GetDetailVocabularyUseCase,
+    private val getVocabularyUseCase: GetVocabularyUseCase
+) : BaseViewModel() {
 
     val groupUnit = SingleLiveData<List<Int>>()
     private val listUnit: MutableSet<Int> = mutableSetOf()

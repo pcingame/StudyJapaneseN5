@@ -1,18 +1,17 @@
 package com.pc.studyjapanesen5.presentation.alphabet
 
-import androidx.fragment.app.viewModels
 import com.google.android.material.tabs.TabLayoutMediator
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
 import com.pc.studyjapanesen5.databinding.FragmentAlphabetBinding
 import com.pc.studyjapanesen5.presentation.main.MainViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AlphabetFragment :
     BaseFragment<FragmentAlphabetBinding, MainViewModel>(FragmentAlphabetBinding::inflate) {
-    override val viewModel: MainViewModel by viewModels()
+    override val viewModel by viewModel<MainViewModel>()
 
     private val tabTitle = listOf(R.string.hiragana, R.string.katakana)
-
 
     override fun setupViews() {
         super.setupViews()

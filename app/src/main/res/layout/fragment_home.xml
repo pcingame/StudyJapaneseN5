@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:overScrollMode="never"
     android:padding="8dp"
     tools:context=".presentation.home.HomeFragment">
 
@@ -20,8 +21,8 @@
             android:gravity="center"
             android:text="@string/home_title"
             android:textColor="@color/black"
-            android:textStyle="bold"
             android:textSize="@dimen/_22ssp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -30,6 +31,7 @@
             android:id="@+id/rcvUnit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

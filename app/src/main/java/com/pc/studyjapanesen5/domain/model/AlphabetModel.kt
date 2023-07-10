@@ -5,9 +5,9 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class AlphabetModel(
-    val id: Int,
+    var id: Int,
     var type: String,
-    val latin: String? = null,
-    val hiragana: String? = null,
-    val katakana: String? = null,
+    var latin: String? = null,
+    var hiragana: String? = null,
+    var katakana: String? = null,
 ) : Parcelable
