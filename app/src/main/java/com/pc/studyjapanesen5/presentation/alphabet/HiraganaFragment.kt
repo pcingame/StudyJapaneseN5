@@ -141,29 +141,41 @@ class HiraganaFragment :
         viewBinding.layoutHiraganaSingle.layoutTitleAlphabet.layoutTitleDivider.isVisible =
             false
         viewBinding.layoutHiraganaSingle.layoutTitleAlphabet.tvDetailType.isVisible = true
+        viewBinding.layoutHiraganaSingle.layoutTitleAlphabet.tvDetailExplain.isVisible = true
         viewBinding.layoutHiraganaSingle.layoutTitleAlphabet.tvDetailType.text =
             getString(R.string.learn, getString(R.string.katakana))
+        viewBinding.layoutHiraganaSingle.layoutTitleAlphabet.tvDetailExplain.text =
+            getString(R.string.main_explain_hira)
     }
 
     private fun setupTitleDakuon() {
         viewBinding.layoutHiraganaDakuon.layoutTitleAlphabet.layoutTitleAlphabetOrigin.isVisible =
             true
+        viewBinding.layoutHiraganaDakuon.layoutTitleAlphabet.tvDetailExplain.isVisible = true
         viewBinding.layoutHiraganaDakuon.layoutTitleAlphabet.tvTypeAlphabet.text =
             getString(R.string.dakuon)
+        viewBinding.layoutHiraganaDakuon.layoutTitleAlphabet.tvDetailExplain.text =
+            getString(R.string.dakuon_explain)
     }
 
     private fun setupTitleCombo() {
         viewBinding.layoutHiraganaCombo.layoutTitleAlphabet.layoutTitleAlphabetOrigin.isVisible =
             true
+        viewBinding.layoutHiraganaCombo.layoutTitleAlphabet.tvDetailExplain.isVisible = true
         viewBinding.layoutHiraganaCombo.layoutTitleAlphabet.tvTypeAlphabet.text =
             getString(R.string.combo)
+        viewBinding.layoutHiraganaCombo.layoutTitleAlphabet.tvDetailExplain.text =
+            getString(R.string.combo_explain)
     }
 
     private fun setupTitleSmall() {
         viewBinding.layoutHiraganaSmall.layoutTitleAlphabet.layoutTitleAlphabetOrigin.isVisible =
             true
+        viewBinding.layoutHiraganaSmall.layoutTitleAlphabet.tvDetailExplain.isVisible = true
         viewBinding.layoutHiraganaSmall.layoutTitleAlphabet.tvTypeAlphabet.text =
             getString(R.string.small)
+        viewBinding.layoutHiraganaSmall.layoutTitleAlphabet.tvDetailExplain.text =
+            getString(R.string.small_explain)
     }
 
     private fun setupTitleLongVowel() {
@@ -171,6 +183,7 @@ class HiraganaFragment :
             true
         viewBinding.layoutHiraganaLongVowel.layoutTitleAlphabet.tvTypeAlphabet.text =
             getString(R.string.long_vowel)
+        viewBinding.layoutHiraganaLongVowel.layoutTitleAlphabet.tvDetailExplain.isVisible = false
     }
 
     override fun onInit(status: Int) {

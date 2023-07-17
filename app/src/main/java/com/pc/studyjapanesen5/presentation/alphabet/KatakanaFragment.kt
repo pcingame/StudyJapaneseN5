@@ -141,32 +141,49 @@ class KatakanaFragment :
     private fun setupTitleSingle() {
         viewBinding.layoutKatakanaSingle.layoutTitleAlphabet.layoutTitleAlphabetOrigin.isVisible =
             true
+        viewBinding.layoutKatakanaSingle.layoutTitleAlphabet.tvDetailExplain.isVisible =
+            true
         viewBinding.layoutKatakanaSingle.layoutTitleAlphabet.layoutTitleDivider.isVisible =
             false
         viewBinding.layoutKatakanaSingle.layoutTitleAlphabet.tvDetailType.isVisible = true
         viewBinding.layoutKatakanaSingle.layoutTitleAlphabet.tvDetailType.text =
             getString(R.string.learn, getString(R.string.katakana))
+        viewBinding.layoutKatakanaSingle.layoutTitleAlphabet.tvDetailExplain.text =
+            getString(R.string.main_explain_kata)
+
     }
 
     private fun setupTitleDakuon() {
         viewBinding.layoutKatakanaDakuon.layoutTitleAlphabet.layoutTitleAlphabetOrigin.isVisible =
             true
+        viewBinding.layoutKatakanaDakuon.layoutTitleAlphabet.tvDetailExplain.isVisible =
+            true
         viewBinding.layoutKatakanaDakuon.layoutTitleAlphabet.tvTypeAlphabet.text =
             getString(R.string.dakuon)
+        viewBinding.layoutKatakanaDakuon.layoutTitleAlphabet.tvDetailExplain.text =
+            getString(R.string.dakuon_explain)
     }
 
     private fun setupTitleCombo() {
         viewBinding.layoutKatakanaCombo.layoutTitleAlphabet.layoutTitleAlphabetOrigin.isVisible =
             true
+        viewBinding.layoutKatakanaCombo.layoutTitleAlphabet.tvDetailExplain.isVisible =
+            true
         viewBinding.layoutKatakanaCombo.layoutTitleAlphabet.tvTypeAlphabet.text =
             getString(R.string.combo)
+        viewBinding.layoutKatakanaCombo.layoutTitleAlphabet.tvDetailExplain.text =
+            getString(R.string.combo_explain)
     }
 
     private fun setupTitleSmall() {
         viewBinding.layoutKatakanaSmall.layoutTitleAlphabet.layoutTitleAlphabetOrigin.isVisible =
             true
+        viewBinding.layoutKatakanaSmall.layoutTitleAlphabet.tvDetailExplain.isVisible =
+            true
         viewBinding.layoutKatakanaSmall.layoutTitleAlphabet.tvTypeAlphabet.text =
             getString(R.string.small)
+        viewBinding.layoutKatakanaSmall.layoutTitleAlphabet.tvDetailExplain.text =
+            getString(R.string.small_explain)
     }
 
     private fun setupTitleLongVowel() {
@@ -174,6 +191,8 @@ class KatakanaFragment :
             true
         viewBinding.layoutKatakanaLongVowel.layoutTitleAlphabet.tvTypeAlphabet.text =
             getString(R.string.long_vowel)
+        viewBinding.layoutKatakanaLongVowel.layoutTitleAlphabet.tvDetailExplain.isVisible = false
+
     }
 
     override fun onInit(status: Int) {

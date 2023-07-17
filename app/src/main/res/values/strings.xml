@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Study N5 Japanese</string>
+    <string name="app_name">Easy N5</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
@@ -35,4 +35,9 @@
     <string name="combo">Combo</string>
     <string name="small">Small</string>
     <string name="long_vowel">Long vowel</string>
+    <string name="main_explain_hira">Làm quen với hệ thống chữ viết chính trong tiếng Nhật</string>
+    <string name="main_explain_kata">Làm quen với các ký tự được sử dụng cho từ mượn trong tiếng Nhật</string>
+    <string name="dakuon_explain">Thêm một biểu tượng để thay đổi âm</string>
+    <string name="combo_explain">Thêm các ký tự nhỏ để tạo âm tiết mới</string>
+    <string name="small_explain">Gấp đôi phụ âm sau</string>
 </resources>

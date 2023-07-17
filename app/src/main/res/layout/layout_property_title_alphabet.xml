@@ -4,17 +4,19 @@
     android:id="@+id/layoutTitleAlphabetOrigin"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:visibility="gone"
-    android:paddingVertical="@dimen/dp_12"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/dp_8"
+    android:visibility="gone">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvDetailType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:text="@string/learn"
         android:textColor="@color/black"
-        android:textSize="@dimen/_16ssp"
+        android:textSize="@dimen/_20ssp"
+        android:textStyle="bold"
         android:visibility="gone" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,6 +43,8 @@
             android:layout_marginEnd="@dimen/dp_12"
             android:text="@string/game_all_vol"
             android:textColor="@color/blue"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/lineType2"
             app:layout_constraintStart_toEndOf="@id/lineType1"
@@ -57,5 +61,16 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDetailExplain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/dp_8"
+        android:paddingTop="@dimen/dp_8"
+        android:text="@string/learn"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/_16ssp"
+        android:visibility="gone" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
