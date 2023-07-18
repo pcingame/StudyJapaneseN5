@@ -44,10 +44,19 @@
         android:id="@+id/shuffleFragment"
         android:name="com.pc.studyjapanesen5.presentation.game.ShuffleFragment"
         android:label="fragment_shuffle"
-        tools:layout="@layout/fragment_shuffle" />
+        tools:layout="@layout/fragment_shuffle" >
+        <action
+            android:id="@+id/action_shuffleFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
     <fragment
         android:id="@+id/listUnitVocabularyFragment"
         android:name="com.pc.studyjapanesen5.presentation.game.ListUnitVocabularyFragment"
         android:label="fragment_list_unit_vocabulary"
         tools:layout="@layout/fragment_list_unit_vocabulary" />
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.pc.studyjapanesen5.presentation.game.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" />
 </navigation>

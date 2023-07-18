@@ -1,6 +1,5 @@
 package com.pc.studyjapanesen5.presentation.game
 
-import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
@@ -18,7 +17,6 @@ class ShuffleFragment :
    // private val random = Random()
 
     private var characterLatin = ""
-    private val progressValue = 1
 
 
     private val alphabetAnswerAdapter by lazy {
@@ -48,10 +46,11 @@ class ShuffleFragment :
 
 
         viewBinding.btnCheckAnswer.click {
-            val aA = viewBinding.tvQuestion.text
-            val answer = if (characterLatin == aA) "right" else "wrong"
-            Toast.makeText(context, answer, Toast.LENGTH_SHORT).show()
-            viewBinding.progressBarGame.progress += progressValue
+//            val aA = viewBinding.tvQuestion.text
+//            val answer = if (characterLatin == aA) "right" else "wrong"
+//            Toast.makeText(context, answer, Toast.LENGTH_SHORT).show()
+//            viewBinding.progressBarGame.progress += progressValue
+            navigate(R.id.resultFragment)
         }
     }
 
