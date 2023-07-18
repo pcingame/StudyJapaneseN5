@@ -40,4 +40,5 @@
     <string name="dakuon_explain">Thêm một biểu tượng để thay đổi âm</string>
     <string name="combo_explain">Thêm các ký tự nhỏ để tạo âm tiết mới</string>
     <string name="small_explain">Gấp đôi phụ âm sau</string>
+    <string name="scale_progress_percent">100%</string>
 </resources>

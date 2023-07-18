@@ -18,6 +18,8 @@ class ShuffleFragment :
    // private val random = Random()
 
     private var characterLatin = ""
+    private val progressValue = 1
+
 
     private val alphabetAnswerAdapter by lazy {
         SimpleListAdapter<ItemAlphabetAnswerBinding, AlphabetModel>(ItemAlphabetAnswerBinding::inflate) { item, _ ->
@@ -28,9 +30,8 @@ class ShuffleFragment :
     override fun setupViews() {
         super.setupViews()
         viewBinding.btnBackGuessGame.click {
-            //navigate(R.id.gameFragment)
-            requireActivity().onBackPressedDispatcher.onBackPressed()
-
+            navigate(R.id.gameFragment)
+            //requireActivity().onBackPressedDispatcher.onBackPressed()
         }
         viewBinding.rcvAnswer.adapter = alphabetAnswerAdapter.apply {
             onItemClick = { item, position ->
@@ -50,6 +51,7 @@ class ShuffleFragment :
             val aA = viewBinding.tvQuestion.text
             val answer = if (characterLatin == aA) "right" else "wrong"
             Toast.makeText(context, answer, Toast.LENGTH_SHORT).show()
+            viewBinding.progressBarGame.progress += progressValue
         }
     }
 
