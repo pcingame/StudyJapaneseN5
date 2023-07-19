@@ -3,6 +3,7 @@ package com.pc.studyjapanesen5.presentation.game
 import android.util.Log
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
+import com.pc.studyjapanesen5.common.Constant
 import com.pc.studyjapanesen5.common.extension.click
 import com.pc.studyjapanesen5.databinding.FragmentGameBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -27,19 +28,22 @@ class GameFragment :
 
     private fun setupHiraganaGame() {
         viewBinding.tvGameHiragana.click {
-            navigate(R.id.shuffleFragment)
+            val bundle = AlphabetGameFragmentArgs(Constant.AlphabetType.HIRAGANA_TYPE).toBundle()
+            navigate(R.id.shuffleFragment, bundle)
         }
     }
 
     private fun setupKatakanaGame() {
         viewBinding.tvGameKatakana.click {
-            navigate(R.id.shuffleFragment)
+            val bundle = AlphabetGameFragmentArgs(Constant.AlphabetType.KATAKANA_TYPE).toBundle()
+            navigate(R.id.shuffleFragment, bundle)
         }
     }
 
     private fun setupHiraKataGame() {
         viewBinding.tvGameAllHiKa.click {
-            navigate(R.id.shuffleFragment)
+            val bundle = AlphabetGameFragmentArgs(Constant.AlphabetType.BOTH_HIRA_KATA).toBundle()
+            navigate(R.id.shuffleFragment, bundle)
         }
     }
 
@@ -51,7 +55,8 @@ class GameFragment :
 
     private fun setupAllVolGame() {
         viewBinding.tvGameAllVol.click {
-            navigate(R.id.shuffleFragment)
+            val bundle = VocabularyGameFragmentArgs(Constant.VocabularyType.ALL_TYPE).toBundle()
+            navigate(R.id.vocabularyGameFragment, bundle)
         }
     }
 

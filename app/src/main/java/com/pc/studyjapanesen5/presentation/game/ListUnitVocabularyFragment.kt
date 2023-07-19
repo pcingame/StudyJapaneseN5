@@ -20,7 +20,12 @@ class ListUnitVocabularyFragment :
     }
 
     override fun setupViews() {
-        viewBinding.rcvUnitGame.adapter = unitListAdapter
+        viewBinding.rcvUnitGame.adapter = unitListAdapter.apply {
+            onItemClick = { item, position ->
+                val bundle = VocabularyGameFragmentArgs(position + 1).toBundle()
+                navigate(R.id.vocabularyGameFragment, bundle)
+            }
+        }
     }
 
     override fun initData() {

@@ -10,6 +10,7 @@
     <string name="default_notification_channel">default_channel</string>
     <string name="hiragana">Hiragana</string>
     <string name="katakana">Katakana</string>
+    <string name="kata_hira">KataHira</string>
     <string name="kanji">Kanji</string>
     <string name="meaning">Ý nghĩa</string>
     <string name="a_jp">あ</string>
@@ -25,6 +26,7 @@
     <string name="sound">đọc</string>
     <string name="unit_number">%s</string>
     <string name="alphabet_guess_game">Chọn đúng ký tự cho từ sau:</string>
+    <string name="vocabulary_guess_game">Chọn nghĩa đúng cho từ sau:</string>
     <string name="check">Kiểm tra</string>
     <string name="game_hira">Bảng chữ cái Hiragana</string>
     <string name="game_kata">Bảng chữ cái Katakana</string>
@@ -41,4 +43,10 @@
     <string name="combo_explain">Thêm các ký tự nhỏ để tạo âm tiết mới</string>
     <string name="small_explain">Gấp đôi phụ âm sau</string>
     <string name="scale_progress_percent">100%</string>
+    <string name="result_score">Số điểm đạt được</string>
+    <string name="button_ok">OK!</string>
+    <string name="button_play_again">Chơi lại!</string>
+    <string name="full_point">100</string>
+    <string name="voca_question_game">Từ mới: %s</string>
+    <string name="kanji_question_game">Kanji: %s</string>
 </resources>

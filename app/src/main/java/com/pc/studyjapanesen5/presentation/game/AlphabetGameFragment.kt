@@ -1,27 +1,33 @@
 package com.pc.studyjapanesen5.presentation.game
 
 import androidx.core.content.res.ResourcesCompat
+import androidx.navigation.fragment.navArgs
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
 import com.pc.studyjapanesen5.base.recyclerview.SimpleListAdapter
+import com.pc.studyjapanesen5.common.Constant
 import com.pc.studyjapanesen5.common.extension.click
-import com.pc.studyjapanesen5.databinding.FragmentShuffleBinding
+import com.pc.studyjapanesen5.databinding.FragmentAlphabetGameBinding
 import com.pc.studyjapanesen5.databinding.ItemAlphabetAnswerBinding
 import com.pc.studyjapanesen5.domain.model.AlphabetModel
 import com.pc.studyjapanesen5.presentation.alphabet.AlphabetViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ShuffleFragment :
-    BaseFragment<FragmentShuffleBinding, AlphabetViewModel>(FragmentShuffleBinding::inflate) {
+class AlphabetGameFragment :
+    BaseFragment<FragmentAlphabetGameBinding, AlphabetViewModel>(FragmentAlphabetGameBinding::inflate) {
     override val viewModel by viewModel<AlphabetViewModel>()
-   // private val random = Random()
+    private val args by navArgs<AlphabetGameFragmentArgs>()
 
     private var characterLatin = ""
 
 
     private val alphabetAnswerAdapter by lazy {
         SimpleListAdapter<ItemAlphabetAnswerBinding, AlphabetModel>(ItemAlphabetAnswerBinding::inflate) { item, _ ->
-            tvAlphabetAnswer.text = item.hiragana
+            when (args.gameType) {
+                Constant.AlphabetType.HIRAGANA_TYPE -> tvAlphabetAnswer.text = item.hiragana
+                Constant.AlphabetType.KATAKANA_TYPE -> tvAlphabetAnswer.text = item.katakana
+                else -> tvAlphabetAnswer.text = item.katakana
+            }
         }
     }
 
@@ -40,7 +46,6 @@ class ShuffleFragment :
                     R.drawable.background_answer_alphabet_select,
                     null
                 )
-
             }
         }
 
@@ -59,13 +64,9 @@ class ShuffleFragment :
     }
 
     override fun observeData() {
-        viewModel.alphabetSingle.observe(viewLifecycleOwner) { list ->
-            val listAnswer = list.filter {
-                it.latin != null
-            }.shuffled().take(4)
-
-            viewBinding.tvQuestion.text = listAnswer.shuffled().first().latin
-            alphabetAnswerAdapter.submitList(listAnswer)
+        viewModel.allAlphabet.observe(viewLifecycleOwner) { list ->
+            viewBinding.tvQuestion.text = list.shuffled().first().latin
+            alphabetAnswerAdapter.submitList(list)
         }
     }
 

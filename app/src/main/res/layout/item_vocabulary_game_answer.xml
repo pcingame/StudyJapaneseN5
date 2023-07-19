@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tvVocabularyAnswer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/dp_8"
+    android:background="@drawable/background_answer_vocabulary_unselect"
+    android:gravity="center"
+    android:maxLines="2"
+    android:paddingVertical="@dimen/dp_8"
+    android:textColor="@color/black"
+    android:textSize="@dimen/_20ssp">
+
+</androidx.appcompat.widget.AppCompatTextView>

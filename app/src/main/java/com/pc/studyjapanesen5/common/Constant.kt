@@ -7,5 +7,12 @@ object Constant {
         const val COMBO_TYPE = "combo"
         const val SMALL_TYPE = "small"
         const val LONG_VOWEL_TYPE = "long_vowel"
+        const val HIRAGANA_TYPE = "hiragana"
+        const val KATAKANA_TYPE = "katakana"
+        const val BOTH_HIRA_KATA = "hirakata"
+    }
+
+    object VocabularyType {
+        const val ALL_TYPE = -1
     }
 }

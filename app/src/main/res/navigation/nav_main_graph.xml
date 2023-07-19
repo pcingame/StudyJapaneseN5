@@ -18,13 +18,16 @@
         android:id="@+id/gameFragment"
         android:name="com.pc.studyjapanesen5.presentation.game.GameFragment"
         android:label="fragment_shuffle_vocabulary"
-        tools:layout="@layout/fragment_game" >
+        tools:layout="@layout/fragment_game">
         <action
             android:id="@+id/action_gameFragment_to_shuffleFragment"
             app:destination="@id/shuffleFragment" />
         <action
             android:id="@+id/action_gameFragment_to_listUnitVocabularyFragment"
             app:destination="@id/listUnitVocabularyFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_vocabularyGameFragment"
+            app:destination="@id/vocabularyGameFragment" />
     </fragment>
     <fragment
         android:id="@+id/alphabetFragment"
@@ -42,9 +45,12 @@
     </fragment>
     <fragment
         android:id="@+id/shuffleFragment"
-        android:name="com.pc.studyjapanesen5.presentation.game.ShuffleFragment"
+        android:name="com.pc.studyjapanesen5.presentation.game.AlphabetGameFragment"
         android:label="fragment_shuffle"
-        tools:layout="@layout/fragment_shuffle" >
+        tools:layout="@layout/fragment_alphabet_game">
+        <argument
+            android:name="game_type"
+            app:argType="string" />
         <action
             android:id="@+id/action_shuffleFragment_to_resultFragment"
             app:destination="@id/resultFragment" />
@@ -53,10 +59,23 @@
         android:id="@+id/listUnitVocabularyFragment"
         android:name="com.pc.studyjapanesen5.presentation.game.ListUnitVocabularyFragment"
         android:label="fragment_list_unit_vocabulary"
-        tools:layout="@layout/fragment_list_unit_vocabulary" />
+        tools:layout="@layout/fragment_list_unit_vocabulary">
+        <action
+            android:id="@+id/action_listUnitVocabularyFragment_to_vocabularyGameFragment"
+            app:destination="@id/vocabularyGameFragment" />
+    </fragment>
     <fragment
         android:id="@+id/resultFragment"
         android:name="com.pc.studyjapanesen5.presentation.game.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" />
+    <fragment
+        android:id="@+id/vocabularyGameFragment"
+        android:name="com.pc.studyjapanesen5.presentation.game.VocabularyGameFragment"
+        android:label="fragment_vocabulary_game"
+        tools:layout="@layout/fragment_vocabulary_game">
+        <argument
+            android:name="unit"
+            app:argType="integer" />
+    </fragment>
 </navigation>
