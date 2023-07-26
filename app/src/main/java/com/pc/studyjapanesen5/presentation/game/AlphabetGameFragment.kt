@@ -35,7 +35,7 @@ class AlphabetGameFragment :
         when (args.gameType) {
             Constant.AlphabetType.HIRAGANA_TYPE -> viewModel.getAlphabetGameData(Constant.AlphabetType.HIRAGANA_TYPE)
             Constant.AlphabetType.KATAKANA_TYPE -> viewModel.getAlphabetGameData(Constant.AlphabetType.KATAKANA_TYPE)
-            else -> viewModel.getAlphabetGameData(Constant.AlphabetType.KATAKANA_TYPE)
+            else -> viewModel.getAlphabetGameData(Constant.AlphabetType.BOTH_HIRA_KATA)
         }
     }
 

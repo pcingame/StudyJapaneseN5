@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CheckButton">
+        <attr name="enabledBackground" format="reference" />
+        <attr name="disabledBackground" format="reference" />
+    </declare-styleable>
+</resources>
