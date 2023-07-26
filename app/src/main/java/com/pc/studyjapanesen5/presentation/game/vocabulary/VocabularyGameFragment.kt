@@ -1,17 +1,13 @@
-package com.pc.studyjapanesen5.presentation.game
+package com.pc.studyjapanesen5.presentation.game.vocabulary
 
 import android.speech.tts.TextToSpeech
 import android.view.View
 import android.widget.Toast
-import androidx.core.content.res.ResourcesCompat
 import androidx.navigation.fragment.navArgs
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
-import com.pc.studyjapanesen5.base.recyclerview.SimpleListAdapter
 import com.pc.studyjapanesen5.common.extension.click
 import com.pc.studyjapanesen5.databinding.FragmentVocabularyGameBinding
-import com.pc.studyjapanesen5.databinding.ItemVocabularyGameAnswerBinding
-import com.pc.studyjapanesen5.domain.model.VocabularyModel
 import com.pc.studyjapanesen5.presentation.home.HomeViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.Locale
@@ -25,23 +21,17 @@ class VocabularyGameFragment :
     private val args by navArgs<VocabularyGameFragmentArgs>()
 
     private val vocabularyAnswerAdapter by lazy {
-        SimpleListAdapter<ItemVocabularyGameAnswerBinding, VocabularyModel>(
-            ItemVocabularyGameAnswerBinding::inflate
-        ) { item, _ ->
-            tvVocabularyAnswer.text = item.wordMeaning
-        }
+        VocabularyGameAdapter(
+            requireContext(),
+            args.unit
+        )
     }
 
     override fun setupViews() {
         textToSpeech = TextToSpeech(requireContext(), this)
-        viewBinding.rcvAnswer.adapter = vocabularyAnswerAdapter.apply {
-            onItemClick = { item, _ ->
-                tvVocabularyAnswer.background = ResourcesCompat.getDrawable(
-                    resources,
-                    R.drawable.background_answer_vocabulary_select,
-                    null
-                )
-            }
+        viewBinding.rcvAnswer.adapter = vocabularyAnswerAdapter
+        viewBinding.btnCheckAnswer.click {
+            navigate(R.id.resultFragment)
         }
     }
 

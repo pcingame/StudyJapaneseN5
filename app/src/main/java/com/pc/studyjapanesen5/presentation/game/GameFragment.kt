@@ -6,6 +6,8 @@ import com.pc.studyjapanesen5.base.BaseFragment
 import com.pc.studyjapanesen5.common.Constant
 import com.pc.studyjapanesen5.common.extension.click
 import com.pc.studyjapanesen5.databinding.FragmentGameBinding
+import com.pc.studyjapanesen5.presentation.game.alphabet.AlphabetGameFragmentArgs
+import com.pc.studyjapanesen5.presentation.game.vocabulary.VocabularyGameFragmentArgs
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

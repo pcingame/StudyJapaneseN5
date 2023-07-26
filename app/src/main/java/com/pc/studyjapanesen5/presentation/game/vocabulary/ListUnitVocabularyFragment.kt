@@ -1,4 +1,4 @@
-package com.pc.studyjapanesen5.presentation.game
+package com.pc.studyjapanesen5.presentation.game.vocabulary
 
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
@@ -21,7 +21,7 @@ class ListUnitVocabularyFragment :
 
     override fun setupViews() {
         viewBinding.rcvUnitGame.adapter = unitListAdapter.apply {
-            onItemClick = { item, position ->
+            onItemClick = { _, position ->
                 val bundle = VocabularyGameFragmentArgs(position + 1).toBundle()
                 navigate(R.id.vocabularyGameFragment, bundle)
             }

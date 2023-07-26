@@ -91,7 +91,7 @@ fun View.setBackgroundView(
     drawableShape.cornerRadius = cornersRadius
     drawableShape.setStroke(strokeWidth, strokeColor)
     drawableShape.setColor(solidColor)
-    this?.apply {
+    this.apply {
         Glide.with(App.context).load(drawableShape).into(object : CustomTarget<Drawable>() {
             override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
                 this@setBackgroundView.background = resource

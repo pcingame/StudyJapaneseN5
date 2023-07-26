@@ -49,4 +49,7 @@
     <string name="full_point">100</string>
     <string name="voca_question_game">Từ mới: %s</string>
     <string name="kanji_question_game">Kanji: %s</string>
+    <string name="dialog_exit_game_question">Oops! Bạn có muốn thoát không ?</string>
+    <string name="dialog_exit_game_continue">Tiếp tục</string>
+    <string name="dialog_exit_game_exit">Thoát</string>
 </resources>
