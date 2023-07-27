@@ -21,7 +21,7 @@ class ListUnitVocabularyFragment :
 
     override fun setupViews() {
         viewBinding.rcvUnitGame.adapter = unitListAdapter.apply {
-            onItemClick = { item, position ->
+            onItemClick = { _, position ->
                 val bundle = VocabularyGameFragmentArgs(position + 1).toBundle()
                 navigate(R.id.vocabularyGameFragment, bundle)
             }

@@ -35,7 +35,7 @@ class VocabularyGameFragment :
     override fun setupViews() {
         textToSpeech = TextToSpeech(requireContext(), this)
         viewBinding.rcvAnswer.adapter = vocabularyAnswerAdapter.apply {
-            onItemClick = { item, _ ->
+            onItemClick = { _, _ ->
                 tvVocabularyAnswer.background = ResourcesCompat.getDrawable(
                     resources,
                     R.drawable.background_answer_vocabulary_select,
