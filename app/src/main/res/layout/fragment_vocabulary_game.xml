@@ -96,22 +96,31 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.4" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvAnswer"
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="@dimen/dp_12"
         android:orientation="vertical"
-        android:overScrollMode="never"
-        android:paddingHorizontal="@dimen/dp_8"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:paddingHorizontal="@dimen/dp_16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideLineTop"
-        app:spanCount="1"
-        tools:itemCount="4"
-        tools:listitem="@layout/item_vocabulary_game_answer" />
+        app:layout_constraintTop_toTopOf="@id/guideLineTop">
+
+        <include
+            android:id="@+id/layoutAnswerVol1"
+            layout="@layout/item_vocabulary_game_answer" />
+
+        <include
+            android:id="@+id/layoutAnswerVol2"
+            layout="@layout/item_vocabulary_game_answer" />
+
+        <include
+            android:id="@+id/layoutAnswerVol3"
+            layout="@layout/item_vocabulary_game_answer" />
+
+        <include
+            android:id="@+id/layoutAnswerVol4"
+            layout="@layout/item_vocabulary_game_answer" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCheckAnswer"

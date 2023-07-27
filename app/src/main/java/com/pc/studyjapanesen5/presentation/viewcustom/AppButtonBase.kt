@@ -144,11 +144,11 @@ abstract class AppButtonBase : AppCompatButton {
         }
     }
 
-    private fun setEnableWithoutAnimation(enable: Boolean) {
-        setWithAnimation(false)
-        isEnabled = enable
-        setWithAnimation(true)
-    }
+//     private fun setEnableWithoutAnimation(enable: Boolean) {
+//        setWithAnimation(false)
+//        isEnabled = enable
+//        setWithAnimation(true)
+//    }
 
     private fun setTextColorWithAnimation(fromColor: Int, toColor: Int) {
         val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), fromColor, toColor)
@@ -184,9 +184,9 @@ abstract class AppButtonBase : AppCompatButton {
         clickListener = listener
     }
 
-    private fun setWithAnimation(withAnimation: Boolean) {
-        this.withAnimation = withAnimation
-    }
+//    private fun setWithAnimation(withAnimation: Boolean) {
+//        this.withAnimation = withAnimation
+//    }
 
     private fun getWithAnimation(): Boolean {
         return this.withAnimation

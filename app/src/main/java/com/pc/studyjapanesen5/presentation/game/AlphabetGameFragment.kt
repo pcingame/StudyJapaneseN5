@@ -54,7 +54,7 @@ class AlphabetGameFragment :
                 viewBinding.progressBarGame.progress += 1
                 if (count < 5) {
                     bindQuestionAndAnswer(count, questionData)
-                    refreshData()
+                    refreshData(true)
                 } else {
                     navigate(R.id.resultFragment)
                 }
@@ -84,25 +84,40 @@ class AlphabetGameFragment :
     }
 
     private fun onLayoutClicked(layoutAnswer: ItemAlphabetAnswerBinding) {
-        refreshData()
+        viewBinding.btnCheckAnswer.isEnabled = true
+        val stateButtonCheck = viewBinding.btnCheckAnswer.isEnabled
+        refreshData(!stateButtonCheck)
         layoutAnswer.layoutItemAnswer.background =
             ContextCompat.getDrawable(App.context, R.drawable.background_answer_alphabet_select)
         val choose = layoutAnswer.tvAlphabetAnswer.text.toString()
         answer = choose
-        viewBinding.btnCheckAnswer.isEnabled = true
     }
 
-    private fun refreshData() {
+    private fun refreshData(isDisableButton: Boolean) {
         with(viewBinding) {
             layoutAnswer1.layoutItemAnswer.background =
-                ContextCompat.getDrawable(App.context, R.drawable.background_answer_alphabet_unselect)
+                ContextCompat.getDrawable(
+                    App.context,
+                    R.drawable.background_answer_alphabet_unselect
+                )
             layoutAnswer2.layoutItemAnswer.background =
-                ContextCompat.getDrawable(App.context, R.drawable.background_answer_alphabet_unselect)
+                ContextCompat.getDrawable(
+                    App.context,
+                    R.drawable.background_answer_alphabet_unselect
+                )
             layoutAnswer3.layoutItemAnswer.background =
-                ContextCompat.getDrawable(App.context, R.drawable.background_answer_alphabet_unselect)
+                ContextCompat.getDrawable(
+                    App.context,
+                    R.drawable.background_answer_alphabet_unselect
+                )
             layoutAnswer4.layoutItemAnswer.background =
-                ContextCompat.getDrawable(App.context, R.drawable.background_answer_alphabet_unselect)
-            btnCheckAnswer.isEnabled = false
+                ContextCompat.getDrawable(
+                    App.context,
+                    R.drawable.background_answer_alphabet_unselect
+                )
+            if (isDisableButton) {
+                btnCheckAnswer.isEnabled = false
+            }
         }
     }
 }
