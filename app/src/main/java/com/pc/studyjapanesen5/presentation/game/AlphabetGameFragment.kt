@@ -24,6 +24,7 @@ class AlphabetGameFragment :
 
     override fun setupViews() {
         super.setupViews()
+        viewBinding.btnCheckAnswer.isEnabled = false
         viewBinding.btnBackGuessGame.click {
             navigate(R.id.gameFragment)
             //requireActivity().onBackPressedDispatcher.onBackPressed()

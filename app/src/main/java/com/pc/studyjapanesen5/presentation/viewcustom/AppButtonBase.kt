@@ -39,8 +39,8 @@ abstract class AppButtonBase : AppCompatButton {
     private var withAnimation = true
     private var clickListener: OnClickListener? = null
 
-    private var mTextColorEnable: Int = ContextCompat.getColor(App.context, R.color.black)
-    private var mTextColorDisable: Int = ContextCompat.getColor(App.context, R.color.button_disabled_text_color)
+    private var mTextColorEnable: Int = ContextCompat.getColor(App.context, R.color.white)
+    private var mTextColorDisable: Int = ContextCompat.getColor(App.context, R.color.black)
 
     private fun initViews(context: Context?, attrs: AttributeSet?) {
         val typedArray = context?.theme?.obtainStyledAttributes(attrs, R.styleable.AppButton, 0, 0)
@@ -62,21 +62,33 @@ abstract class AppButtonBase : AppCompatButton {
 
     private fun getValueAttributes(typedArray: TypedArray?) {
         if (typedArray != null) {
-            when {
-                typedArray.hasValue(R.styleable.AppButton_enabledBackground) -> mDrawableEnableState =
-                    typedArray.getDrawable(R.styleable.AppButton_enabledBackground)
-                typedArray.hasValue(R.styleable.AppButton_disabledBackground) -> mDrawableDisabledState =
-                    typedArray.getDrawable(R.styleable.AppButton_disabledBackground)
-                typedArray.hasValue(R.styleable.AppButton_highlightBackground) -> mDrawableHighlightState =
-                    typedArray.getDrawable(R.styleable.AppButton_highlightBackground)
-                (typedArray.hasValue(R.styleable.AppButton_enabledBackground) && !typedArray.hasValue(R.styleable.AppButton_highlightBackground)) -> mDrawableHighlightState =
-                    typedArray.getDrawable(R.styleable.AppButton_enabledBackground)
-                (!typedArray.hasValue(R.styleable.AppButton_enabledBackground) && typedArray.hasValue(R.styleable.AppButton_highlightBackground)) -> mDrawableEnableState =
-                    typedArray.getDrawable(R.styleable.AppButton_enabledBackground)
-                typedArray.hasValue(R.styleable.AppButton_textColorEnable) -> mTextColorEnable = typedArray.getColor(
+
+            if (typedArray.hasValue(R.styleable.AppButton_enabledBackground)) {
+                mDrawableEnableState = typedArray.getDrawable(R.styleable.AppButton_enabledBackground)
+            }
+            if (typedArray.hasValue(R.styleable.AppButton_disabledBackground)) {
+                mDrawableDisabledState = typedArray.getDrawable(R.styleable.AppButton_disabledBackground)
+            }
+            if (typedArray.hasValue(R.styleable.AppButton_highlightBackground)) {
+                mDrawableHighlightState = typedArray.getDrawable(R.styleable.AppButton_highlightBackground)
+            }
+            if ((typedArray.hasValue(R.styleable.AppButton_enabledBackground)
+                        && !typedArray.hasValue(R.styleable.AppButton_highlightBackground))
+            ) {
+                mDrawableHighlightState = typedArray.getDrawable(R.styleable.AppButton_enabledBackground)
+            }
+            if ((!typedArray.hasValue(R.styleable.AppButton_enabledBackground)
+                        && typedArray.hasValue(R.styleable.AppButton_highlightBackground))
+            ) {
+                mDrawableEnableState = typedArray.getDrawable(R.styleable.AppButton_enabledBackground)
+            }
+            if (typedArray.hasValue(R.styleable.AppButton_textColorEnable)) {
+                mTextColorEnable = typedArray.getColor(
                     R.styleable.AppButton_textColorEnable, ContextCompat.getColor(App.context, initTextColorEnabled())
                 )
-                typedArray.hasValue(R.styleable.AppButton_textColorDisable) -> mTextColorDisable = typedArray.getColor(
+            }
+            if (typedArray.hasValue(R.styleable.AppButton_textColorDisable)) {
+                mTextColorDisable = typedArray.getColor(
                     R.styleable.AppButton_textColorDisable, ContextCompat.getColor(App.context, initTextColorDisabled())
                 )
             }
@@ -91,16 +103,14 @@ abstract class AppButtonBase : AppCompatButton {
 
     abstract fun initDrawableStateEnabled(): Drawable?
 
-    private fun initDrawableStateDisabled(): Drawable? {
-        return ContextCompat.getDrawable(context, R.drawable.button_disabled_default)
-    }
+    abstract fun initDrawableStateDisabled(): Drawable?
 
     abstract fun initDrawableStatePress(): Drawable?
 
     abstract fun initTextColorEnabled(): Int
 
     private fun initTextColorDisabled(): Int {
-        return R.color.button_disabled_text_color
+        return R.color.black
     }
 
     override fun setEnabled(enabled: Boolean) {
@@ -108,13 +118,28 @@ abstract class AppButtonBase : AppCompatButton {
             super.setEnabled(enabled)
             if (lastState != null && lastState != enabled) {
                 if (enabled) {
-                    setTextColor(mTextColorEnable)
-                    mDrawableEnableState
+                    setTextColorWithAnimation(mTextColorDisable, mTextColorEnable)
+                    background = disableToEnableTransition
+                    disableToEnableTransition.startTransition(ANIMATE_DURATION)
                 } else {
-                    setTextColor(mTextColorDisable)
-                    mDrawableDisabledState
+                    setTextColorWithAnimation(mTextColorEnable, mTextColorDisable)
+                    background = disableToEnableTransition
+                    disableToEnableTransition.startTransition(0)
+                    disableToEnableTransition.reverseTransition(ANIMATE_DURATION)
                 }
                 lastState = enabled
+            } else {
+                super.setEnabled(enabled)
+                if (lastState != null && lastState != enabled) {
+                    background = if (enabled) {
+                        setTextColor(mTextColorEnable)
+                        mDrawableEnableState
+                    } else {
+                        setTextColor(mTextColorDisable)
+                        mDrawableDisabledState
+                    }
+                    lastState = enabled
+                }
             }
         }
     }

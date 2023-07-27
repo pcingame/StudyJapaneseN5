@@ -18,12 +18,15 @@ class AppButton : AppButtonBase {
         return ContextCompat.getDrawable(context, R.drawable.background_button_choose_answer)
     }
 
+    override fun initDrawableStateDisabled(): Drawable? {
+        return ContextCompat.getDrawable(context, R.drawable.button_disabled_default)
+    }
 
     override fun initDrawableStatePress(): Drawable? {
-        TODO("Not yet implemented")
+        return ContextCompat.getDrawable(context, R.drawable.button_highlighted_default)
     }
 
     override fun initTextColorEnabled(): Int {
-        TODO("Not yet implemented")
+        return  R.color.white
     }
 }

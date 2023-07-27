@@ -131,17 +131,16 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.pc.studyjapanesen5.presentation.viewcustom.AppButton
         android:id="@+id/btnCheckAnswer"
         android:layout_width="@dimen/dp_320"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/dp_48"
         android:layout_marginHorizontal="@dimen/dp_16"
         android:layout_marginBottom="@dimen/dp_12"
-        android:background="@drawable/background_button_choose_answer"
+        android:enabled="false"
         android:text="@string/check"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:enabled="false"
         android:textSize="@dimen/_24ssp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
