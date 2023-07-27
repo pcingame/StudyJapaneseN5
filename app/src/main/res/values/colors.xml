@@ -19,4 +19,8 @@
     <color name="primary_blue">#0080FF</color>
     <color name="choose_start">#00ADF3</color>
     <color name="choose_end">#198CFF</color>
+    <color name="button_disabled_text_color">#CCCCCC</color>
+    <color name="button_highlight_center_color">#b875b3ff</color>
+    <color name="button_highlight_start_color">#aa7fb3ff</color>
+    <color name="button_highlight_end_color">#aa3c95ff</color>
 </resources>

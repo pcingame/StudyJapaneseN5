@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="CheckButton">
+    <declare-styleable name="AppButton">
         <attr name="enabledBackground" format="reference" />
         <attr name="disabledBackground" format="reference" />
+        <attr name="highlightBackground" format="reference" />
+        <attr name="textColorEnable" format="integer|color" />
+        <attr name="textColorDisable" format="integer|color" />
     </declare-styleable>
 </resources>
