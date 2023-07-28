@@ -30,7 +30,7 @@
             android:layout_height="@dimen/dp_16"
             android:layout_marginStart="@dimen/dp_20"
             android:layout_marginTop="@dimen/dp_4"
-            android:max="15"
+            android:max="20"
             android:progress="0"
             android:progressDrawable="@drawable/progress_bar_game" />
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -122,13 +122,12 @@
             layout="@layout/item_vocabulary_game_answer" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.pc.studyjapanesen5.presentation.viewcustom.AppButton
         android:id="@+id/btnCheckAnswer"
         android:layout_width="@dimen/dp_320"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/dp_48"
         android:layout_marginHorizontal="@dimen/dp_16"
         android:layout_marginBottom="@dimen/dp_12"
-        android:background="@drawable/background_button_choose_answer"
         android:text="@string/check"
         android:textAllCaps="false"
         android:textColor="@color/white"

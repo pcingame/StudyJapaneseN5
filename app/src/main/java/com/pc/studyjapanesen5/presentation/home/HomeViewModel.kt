@@ -52,39 +52,45 @@ class HomeViewModel(
                 val detail = withContext(Dispatchers.IO) {
                     getDetailVocabularyUseCase(params)
                 }.toMutableList()
-                while (vocabularyQuestionData.size < Constant.AlphabetType.NUMBER_OF_QUESTION) {
-                    val listShuffle = detail.shuffled().take(4)
-                    val listAnswer = listShuffle.shuffled()
-                    val questionVocabulary = listShuffle.first().newWord
-                    val questionKanji = listShuffle.first().kanji
-                    val correctAnswer = listShuffle.first().wordMeaning
-
-                    vocabularyQuestionData.add(
-                        VocabularyQuestionModel(
-                            questionVocabulary,
-                            questionKanji,
-                            correctAnswer,
-                            listAnswer[0].wordMeaning,
-                            listAnswer[1].wordMeaning,
-                            listAnswer[2].wordMeaning,
-                            listAnswer[2].wordMeaning
-                        )
-                    )
-
-                    detail.removeIf {
-                        it.newWord == questionVocabulary
-                    }
-                }
-
-                listVocabularyGame.value = vocabularyQuestionData
+                listVocabularyGame.value = getDataQuestion(vocabularyQuestionData, detail)
             }
         } else {
-//            executeTask {
-//                val fullVocabulary = withContext(Dispatchers.IO) {
-//                    getVocabularyUseCase()
-//                }
-//                listVocabularyGame.value = fullVocabulary
-//            }
+            executeTask {
+                val fullVocabulary = withContext(Dispatchers.IO) {
+                    getVocabularyUseCase()
+                }.toMutableList()
+                listVocabularyGame.value = getDataQuestion(vocabularyQuestionData, fullVocabulary)
+            }
         }
+    }
+
+    private fun getDataQuestion(
+        vocabularyQuestionData: MutableList<VocabularyQuestionModel>,
+        data: MutableList<VocabularyModel>
+    ): List<VocabularyQuestionModel> {
+        while (vocabularyQuestionData.size < Constant.AlphabetType.NUMBER_OF_QUESTION) {
+            val listShuffle = data.shuffled().take(4)
+            val listAnswer = listShuffle.shuffled()
+            val questionVocabulary = listShuffle.first().newWord
+            val questionKanji = listShuffle.first().kanji
+            val correctAnswer = listShuffle.first().wordMeaning
+
+            vocabularyQuestionData.add(
+                VocabularyQuestionModel(
+                    questionVocabulary,
+                    questionKanji,
+                    correctAnswer,
+                    listAnswer[0].wordMeaning,
+                    listAnswer[1].wordMeaning,
+                    listAnswer[2].wordMeaning,
+                    listAnswer[3].wordMeaning
+                )
+            )
+
+            data.removeIf {
+                it.newWord == questionVocabulary
+            }
+        }
+        return vocabularyQuestionData
     }
 }

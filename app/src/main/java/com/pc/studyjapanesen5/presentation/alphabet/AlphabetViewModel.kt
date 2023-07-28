@@ -24,8 +24,6 @@ class AlphabetViewModel(
     val alphabetCombo = SingleLiveData<List<AlphabetModel>>()
     val alphabetSmall = SingleLiveData<List<AlphabetModel>>()
     val alphabetLongVowel = SingleLiveData<List<AlphabetModel>>()
-    val allAlphabet = SingleLiveData<List<AlphabetModel>>()
-
     val listAlphabetQuestionModel = SingleLiveData<List<AlphabetQuestionModel>>()
 
     fun getAllJapaneseAlphabet() {
@@ -34,9 +32,6 @@ class AlphabetViewModel(
             val allJapaneseAlphabet = withContext(Dispatchers.IO) {
                 getAlphabetUseCase()
             }
-            allAlphabet.value = allJapaneseAlphabet.filter {
-                it.latin != null
-            }.shuffled().take(4)
             val (single, dakuon, combo, small, longVowel) = allJapaneseAlphabet.partitions(
                 { it.type == SINGLE_TYPE },
                 { it.type == DAKUON_TYPE },
@@ -101,7 +96,7 @@ class AlphabetViewModel(
 
         for (i in 1..10) {
             val listData = allJapaneseAlphabet.filter {
-                it.latin != null
+                it.latin != null && it.katakana != null
             }
             val listShuffle = listData.shuffled().take(4)
             val listAnswer = listShuffle.shuffled()

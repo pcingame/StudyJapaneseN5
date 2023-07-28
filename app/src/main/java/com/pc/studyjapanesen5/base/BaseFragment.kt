@@ -85,7 +85,6 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(
 
     /**
      * Navigate with animation param
-     * @param resId is resId screen
      */
     fun navigate(directions: NavDirections, options: NavOptions = navOptions) {
         findNavController().navigate(directions, options)

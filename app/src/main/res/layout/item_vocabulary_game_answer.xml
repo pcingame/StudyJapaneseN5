@@ -7,6 +7,7 @@
     android:background="@drawable/background_answer_vocabulary_unselect"
     android:gravity="center"
     android:maxLines="2"
+    android:paddingHorizontal="@dimen/dp_8"
     android:paddingVertical="@dimen/dp_8"
     android:textColor="@color/black"
     android:textSize="@dimen/_20ssp">

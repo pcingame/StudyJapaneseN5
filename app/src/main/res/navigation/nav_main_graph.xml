@@ -68,7 +68,11 @@
         android:id="@+id/resultFragment"
         android:name="com.pc.studyjapanesen5.presentation.game.ResultFragment"
         android:label="fragment_result"
-        tools:layout="@layout/fragment_result" />
+        tools:layout="@layout/fragment_result" >
+        <argument
+            android:name="totalMark"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/vocabularyGameFragment"
         android:name="com.pc.studyjapanesen5.presentation.game.VocabularyGameFragment"

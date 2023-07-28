@@ -5,7 +5,6 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.navArgs
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
-import com.pc.studyjapanesen5.common.Constant
 import com.pc.studyjapanesen5.common.extension.click
 import com.pc.studyjapanesen5.databinding.FragmentAlphabetGameBinding
 import com.pc.studyjapanesen5.databinding.ItemAlphabetAnswerBinding
@@ -21,6 +20,7 @@ class AlphabetGameFragment :
 
     private var answer = ""
     private var count = 0
+    private var totalMark = 0
 
     override fun setupViews() {
         super.setupViews()
@@ -33,11 +33,7 @@ class AlphabetGameFragment :
     }
 
     override fun initData() {
-        when (args.gameType) {
-            Constant.AlphabetType.HIRAGANA_TYPE -> viewModel.getAlphabetGameData(Constant.AlphabetType.HIRAGANA_TYPE)
-            Constant.AlphabetType.KATAKANA_TYPE -> viewModel.getAlphabetGameData(Constant.AlphabetType.KATAKANA_TYPE)
-            else -> viewModel.getAlphabetGameData(Constant.AlphabetType.BOTH_HIRA_KATA)
-        }
+        viewModel.getAlphabetGameData(args.gameType)
     }
 
     override fun observeData() {
@@ -51,6 +47,7 @@ class AlphabetGameFragment :
         viewBinding.btnCheckAnswer.click {
             if (answer == questionData[count].correctAnswer) {
                 count += 1
+                totalMark += 5
                 viewBinding.progressBarGame.progress += 1
                 if (count < 5) {
                     bindQuestionAndAnswer(count, questionData)
