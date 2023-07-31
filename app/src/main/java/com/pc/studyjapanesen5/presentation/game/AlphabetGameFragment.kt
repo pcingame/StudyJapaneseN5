@@ -10,12 +10,11 @@ import com.pc.studyjapanesen5.databinding.FragmentAlphabetGameBinding
 import com.pc.studyjapanesen5.databinding.ItemAlphabetAnswerBinding
 import com.pc.studyjapanesen5.di.App
 import com.pc.studyjapanesen5.domain.model.AlphabetQuestionModel
-import com.pc.studyjapanesen5.presentation.alphabet.AlphabetViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AlphabetGameFragment :
-    BaseFragment<FragmentAlphabetGameBinding, AlphabetViewModel>(FragmentAlphabetGameBinding::inflate) {
-    override val viewModel by viewModel<AlphabetViewModel>()
+    BaseFragment<FragmentAlphabetGameBinding, GameViewModel>(FragmentAlphabetGameBinding::inflate) {
+    override val viewModel by viewModel<GameViewModel>()
     private val args by navArgs<AlphabetGameFragmentArgs>()
 
     private var answer = ""

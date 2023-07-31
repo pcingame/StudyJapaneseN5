@@ -12,14 +12,13 @@ import com.pc.studyjapanesen5.databinding.FragmentVocabularyGameBinding
 import com.pc.studyjapanesen5.databinding.ItemVocabularyGameAnswerBinding
 import com.pc.studyjapanesen5.di.App
 import com.pc.studyjapanesen5.domain.model.VocabularyQuestionModel
-import com.pc.studyjapanesen5.presentation.home.HomeViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.Locale
 
 class VocabularyGameFragment :
-    BaseFragment<FragmentVocabularyGameBinding, HomeViewModel>(FragmentVocabularyGameBinding::inflate),
+    BaseFragment<FragmentVocabularyGameBinding, GameViewModel>(FragmentVocabularyGameBinding::inflate),
     TextToSpeech.OnInitListener {
-    override val viewModel by viewModel<HomeViewModel>()
+    override val viewModel by viewModel<GameViewModel>()
     private lateinit var textToSpeech: TextToSpeech
     private val args by navArgs<VocabularyGameFragmentArgs>()
     private var answer = ""
@@ -69,12 +68,12 @@ class VocabularyGameFragment :
             layoutAnswerVol2.tvVocabularyAnswer.text = questionData[count].answer2
             layoutAnswerVol3.tvVocabularyAnswer.text = questionData[count].answer3
             layoutAnswerVol4.tvVocabularyAnswer.text = questionData[count].answer4
-            tvQuestionHira.text = questionData[count].vocabulary
+            tvQuestionHira.text = getString(R.string.voca_question_game, questionData[count].vocabulary)
             val kanjiQuestion = questionData[count].kanji
             if (kanjiQuestion == null) {
                 tvQuestionKanji.visibility = View.GONE
             } else {
-                tvQuestionKanji.text = questionData[count].kanji
+                tvQuestionKanji.text = getString(R.string.kanji_question_game, questionData[count].kanji)
             }
             textToSpeech.speak(questionData[count].vocabulary, TextToSpeech.QUEUE_FLUSH, null, null)
         }
