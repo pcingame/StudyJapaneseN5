@@ -19,6 +19,7 @@ class ResultFragment() :
         viewBinding.btnPlayAgainResult.click {
             navigate(R.id.shuffleFragment)
         }
+        //nBackPress(null,false)
     }
 
 }

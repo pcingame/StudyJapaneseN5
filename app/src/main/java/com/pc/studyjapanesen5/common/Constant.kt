@@ -10,10 +10,11 @@ object Constant {
         const val HIRAGANA_TYPE = "hiragana"
         const val KATAKANA_TYPE = "katakana"
         const val BOTH_HIRA_KATA = "hirakata"
-        const val NUMBER_OF_QUESTION = 20
+        const val NUMBER_OF_QUESTION_ALPHABET = 20
     }
 
     object VocabularyType {
         const val ALL_TYPE = -1
+        const val NUMBER_OF_QUESTION_ALPHABET = 15
     }
 }

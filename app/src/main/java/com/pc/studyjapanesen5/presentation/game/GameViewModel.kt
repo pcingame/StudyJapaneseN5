@@ -101,7 +101,7 @@ class GameViewModel(
     ) {
         val listQuestion = mutableListOf<AlphabetQuestionModel>()
 
-        while (listQuestion.size < Constant.AlphabetType.NUMBER_OF_QUESTION) {
+        while (listQuestion.size < Constant.AlphabetType.NUMBER_OF_QUESTION_ALPHABET) {
             val listData = allJapaneseAlphabet.filter {
                 it.latin != null
             }
@@ -170,7 +170,7 @@ class GameViewModel(
         vocabularyQuestionData: MutableList<VocabularyQuestionModel>,
         data: MutableList<VocabularyModel>
     ): List<VocabularyQuestionModel> {
-        while (vocabularyQuestionData.size < Constant.AlphabetType.NUMBER_OF_QUESTION) {
+        while (vocabularyQuestionData.size < Constant.VocabularyType.NUMBER_OF_QUESTION_ALPHABET) {
             val listShuffle = data.shuffled().take(4)
             val listAnswer = listShuffle.shuffled()
             val questionVocabulary = listShuffle.first().newWord

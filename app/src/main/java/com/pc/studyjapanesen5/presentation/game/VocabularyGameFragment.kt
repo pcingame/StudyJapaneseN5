@@ -68,14 +68,23 @@ class VocabularyGameFragment :
             layoutAnswerVol2.tvVocabularyAnswer.text = questionData[count].answer2
             layoutAnswerVol3.tvVocabularyAnswer.text = questionData[count].answer3
             layoutAnswerVol4.tvVocabularyAnswer.text = questionData[count].answer4
-            tvQuestionHira.text = getString(R.string.voca_question_game, questionData[count].vocabulary)
+            tvQuestionHira.text =
+                getString(R.string.voca_question_game, questionData[count].vocabulary)
             val kanjiQuestion = questionData[count].kanji
             if (kanjiQuestion == null) {
                 tvQuestionKanji.visibility = View.GONE
             } else {
-                tvQuestionKanji.text = getString(R.string.kanji_question_game, questionData[count].kanji)
+                tvQuestionKanji.text =
+                    getString(R.string.kanji_question_game, questionData[count].kanji)
             }
-            textToSpeech.speak(questionData[count].vocabulary, TextToSpeech.QUEUE_FLUSH, null, null)
+            imgSound.click {
+                textToSpeech.speak(
+                    questionData[count].vocabulary,
+                    TextToSpeech.QUEUE_FLUSH,
+                    null,
+                    null
+                )
+            }
         }
     }
 

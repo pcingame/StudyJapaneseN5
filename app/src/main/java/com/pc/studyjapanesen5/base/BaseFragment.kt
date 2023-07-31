@@ -55,6 +55,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(
         initData()
         observeBase()
         observeData()
+        onBackPress()
     }
 
     protected open fun setupViews() {
@@ -90,6 +91,17 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(
         findNavController().navigate(directions, options)
     }
 
+    fun onBackPress(resId: Int? = null, isBackPress: Boolean? = true) {
+//        requireActivity().onBackPressedDispatcher.addCallback(
+//            viewLifecycleOwner,
+//            object : OnBackPressedCallback(true) {
+//                override fun handleOnBackPressed() {
+//
+//                }
+//            })
+
+    }
+
     /**
      * Navigate with animation param
      * @param resId is resId screen
@@ -120,4 +132,5 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(
         super.onDestroyView()
         _binding = null
     }
+
 }
