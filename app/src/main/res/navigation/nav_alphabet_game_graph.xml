@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_alphabet_game_graph"
+    app:startDestination="@id/alphabetGameFragment">
+
+    <fragment
+        android:id="@+id/alphabetGameFragment"
+        android:name="com.pc.studyjapanesen5.presentation.game.AlphabetGameFragment"
+        android:label="AlphabetGameFragment" >
+        <action
+            android:id="@+id/action_alphabetGameFragment_to_resultFragment3"
+            app:destination="@id/resultFragmentA" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragmentA"
+        android:name="com.pc.studyjapanesen5.presentation.game.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" />
+</navigation>

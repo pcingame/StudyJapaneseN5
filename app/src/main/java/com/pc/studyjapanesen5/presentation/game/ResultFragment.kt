@@ -1,9 +1,10 @@
 package com.pc.studyjapanesen5.presentation.game
 
-import com.pc.studyjapanesen5.R
+import android.content.Intent
 import com.pc.studyjapanesen5.base.BaseFragment
 import com.pc.studyjapanesen5.common.extension.click
 import com.pc.studyjapanesen5.databinding.FragmentResultBinding
+import com.pc.studyjapanesen5.presentation.main.MainActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -13,12 +14,14 @@ class ResultFragment() :
 
     override fun setupViews() {
         viewBinding.btnOKResult.click {
-            navigate(R.id.gameFragment)
+           val intent = Intent(activity, MainActivity::class.java)
+            startActivity(intent)
+            activity?.finish()
         }
 
-        viewBinding.btnPlayAgainResult.click {
-            navigate(R.id.shuffleFragment)
-        }
+//        viewBinding.btnPlayAgainResult.click {
+//            navigate(R.id.shuffleFragment)
+//        }
         //nBackPress(null,false)
     }
 

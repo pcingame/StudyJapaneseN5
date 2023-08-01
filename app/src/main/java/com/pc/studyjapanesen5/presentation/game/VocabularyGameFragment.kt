@@ -1,5 +1,6 @@
 package com.pc.studyjapanesen5.presentation.game
 
+import android.content.Intent
 import android.speech.tts.TextToSpeech
 import android.view.View
 import android.widget.Toast
@@ -12,6 +13,7 @@ import com.pc.studyjapanesen5.databinding.FragmentVocabularyGameBinding
 import com.pc.studyjapanesen5.databinding.ItemVocabularyGameAnswerBinding
 import com.pc.studyjapanesen5.di.App
 import com.pc.studyjapanesen5.domain.model.VocabularyQuestionModel
+import com.pc.studyjapanesen5.presentation.main.MainActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.Locale
 
@@ -28,8 +30,8 @@ class VocabularyGameFragment :
         textToSpeech = TextToSpeech(requireContext(), this)
         viewBinding.btnCheckAnswer.isEnabled = false
         viewBinding.btnBackGame.click {
-            navigate(R.id.gameFragment)
-            //requireActivity().onBackPressedDispatcher.onBackPressed()
+            val intent = Intent(activity, MainActivity::class.java)
+            startActivity(intent)
         }
         onClickAnswer()
     }
@@ -54,7 +56,7 @@ class VocabularyGameFragment :
                     bindQuestionAndAnswer(count, questionData)
                     refreshData(true)
                 } else {
-                    navigate(R.id.resultFragment)
+                    navigate(R.id.resultFragmentV)
                 }
             } else {
                 Toast.makeText(context, "wrong", Toast.LENGTH_SHORT).show()

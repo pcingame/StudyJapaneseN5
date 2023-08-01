@@ -3,17 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
         android:name=".di.MainApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:enableOnBackInvokedCallback="true"
         android:theme="@style/Theme.EnglishShuffle"
         tools:targetApi="tiramisu">
+        <activity
+            android:name=".presentation.game.VocabularyGameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.game.AlphabetGameActivity"
+            android:exported="false" />
         <activity
             android:name=".presentation.main.MainActivity"
             android:exported="true">

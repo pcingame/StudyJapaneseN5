@@ -15,6 +15,7 @@ object Constant {
 
     object VocabularyType {
         const val ALL_TYPE = -1
-        const val NUMBER_OF_QUESTION_ALPHABET = 15
+        const val ONE_TYPE = 99
+        const val NUMBER_OF_QUESTION_ALPHABET = 10
     }
 }

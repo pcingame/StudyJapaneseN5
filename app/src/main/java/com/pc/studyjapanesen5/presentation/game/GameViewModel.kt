@@ -188,7 +188,6 @@ class GameViewModel(
                     listAnswer[3].wordMeaning
                 )
             )
-
             data.removeIf {
                 it.newWord == questionVocabulary
             }

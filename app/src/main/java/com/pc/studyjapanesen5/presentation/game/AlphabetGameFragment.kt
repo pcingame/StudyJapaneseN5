@@ -2,9 +2,9 @@ package com.pc.studyjapanesen5.presentation.game
 
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.navigation.fragment.navArgs
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
+import com.pc.studyjapanesen5.common.Constant.AlphabetType.HIRAGANA_TYPE
 import com.pc.studyjapanesen5.common.extension.click
 import com.pc.studyjapanesen5.databinding.FragmentAlphabetGameBinding
 import com.pc.studyjapanesen5.databinding.ItemAlphabetAnswerBinding
@@ -15,7 +15,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class AlphabetGameFragment :
     BaseFragment<FragmentAlphabetGameBinding, GameViewModel>(FragmentAlphabetGameBinding::inflate) {
     override val viewModel by viewModel<GameViewModel>()
-    private val args by navArgs<AlphabetGameFragmentArgs>()
+
+    private val gameType =
+        activity?.intent?.extras?.getString(GameFragment.ALPHABET_GAME) ?: HIRAGANA_TYPE
 
     private var answer = ""
     private var count = 0
@@ -27,12 +29,13 @@ class AlphabetGameFragment :
         viewBinding.btnBackGuessGame.click {
             navigate(R.id.gameFragment)
             //requireActivity().onBackPressedDispatcher.onBackPressed()
+            onDestroyView()
         }
         onClickAnswer()
     }
 
     override fun initData() {
-        viewModel.getAlphabetGameData(args.gameType)
+        viewModel.getAlphabetGameData(gameType)
     }
 
     override fun observeData() {
@@ -52,7 +55,7 @@ class AlphabetGameFragment :
                     bindQuestionAndAnswer(count, questionData)
                     refreshData(true)
                 } else {
-                    navigate(R.id.resultFragment)
+                    navigate(R.id.resultFragmentA)
                 }
             } else {
                 Toast.makeText(context, "wrong", Toast.LENGTH_SHORT).show()

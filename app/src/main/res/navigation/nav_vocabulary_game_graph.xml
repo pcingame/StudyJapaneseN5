@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_vocabulary_game_graph"
+    app:startDestination="@id/listUnitVocabularyFragment">
+
+    <fragment
+        android:id="@+id/vocabularyGameFragment"
+        android:name="com.pc.studyjapanesen5.presentation.game.VocabularyGameFragment"
+        android:label="VocabularyGameFragment" >
+        <action
+            android:id="@+id/action_vocabularyGameFragment2_to_resultFragment2"
+            app:destination="@id/resultFragmentV" />
+        <argument
+            android:name="unit"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/listUnitVocabularyFragment"
+        android:name="com.pc.studyjapanesen5.presentation.game.ListUnitVocabularyFragment"
+        android:label="fragment_list_unit_vocabulary"
+        tools:layout="@layout/fragment_list_unit_vocabulary" >
+        <action
+            android:id="@+id/action_listUnitVocabularyFragment2_to_vocabularyGameFragment2"
+            app:destination="@id/vocabularyGameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragmentV"
+        android:name="com.pc.studyjapanesen5.presentation.game.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" />
+</navigation>
