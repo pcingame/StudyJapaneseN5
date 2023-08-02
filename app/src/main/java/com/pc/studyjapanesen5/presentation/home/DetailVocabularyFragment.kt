@@ -1,4 +1,4 @@
-package com.pc.studyjapanesen5.presentation.detailVocabulary
+package com.pc.studyjapanesen5.presentation.home
 
 import android.speech.tts.TextToSpeech
 import android.view.View
@@ -11,7 +11,6 @@ import com.pc.studyjapanesen5.common.extension.click
 import com.pc.studyjapanesen5.databinding.FragmentDetailVocabularyBinding
 import com.pc.studyjapanesen5.databinding.ItemVocabularyBinding
 import com.pc.studyjapanesen5.domain.model.VocabularyModel
-import com.pc.studyjapanesen5.presentation.home.HomeViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.Locale
 

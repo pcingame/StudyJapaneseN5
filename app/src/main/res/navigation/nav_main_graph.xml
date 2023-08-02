@@ -32,7 +32,7 @@
         tools:layout="@layout/fragment_alphabet" />
     <fragment
         android:id="@+id/detailVocabularyFragment"
-        android:name="com.pc.studyjapanesen5.presentation.detailVocabulary.DetailVocabularyFragment"
+        android:name="com.pc.studyjapanesen5.presentation.home.DetailVocabularyFragment"
         android:label="fragment_detail_vocabulary"
         tools:layout="@layout/fragment_detail_vocabulary">
         <argument

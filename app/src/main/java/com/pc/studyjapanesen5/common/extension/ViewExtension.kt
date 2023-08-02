@@ -3,10 +3,12 @@ package com.pc.studyjapanesen5.common.extension
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.os.SystemClock
+import android.text.SpannableString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.TextView
 import androidx.annotation.AnimRes
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
@@ -103,7 +105,16 @@ fun View.setBackgroundView(
 
         })
     }
+}
 
-
+fun TextView.setTextNullable(text: Any?) {
+    when (text) {
+        // if text is String return it or empty
+        is String -> this.text = text as String? ?: ""
+        // if text is SpannableString return it or empty
+        is SpannableString -> this.text = text as SpannableString? ?: ""
+        // else return empty
+        else -> this.text = ""
+    }
 }
 

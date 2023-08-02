@@ -1,6 +1,7 @@
-package com.pc.studyjapanesen5.presentation.game
+package com.pc.studyjapanesen5.presentation.game.vocabulary
 
 import android.content.Intent
+import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.view.View
 import android.widget.Toast
@@ -13,7 +14,12 @@ import com.pc.studyjapanesen5.databinding.FragmentVocabularyGameBinding
 import com.pc.studyjapanesen5.databinding.ItemVocabularyGameAnswerBinding
 import com.pc.studyjapanesen5.di.App
 import com.pc.studyjapanesen5.domain.model.VocabularyQuestionModel
+import com.pc.studyjapanesen5.presentation.game.GameViewModel
+import com.pc.studyjapanesen5.presentation.game.result.ResultActivity
+import com.pc.studyjapanesen5.presentation.game.result.ResultFragment.Companion.KEY_GAME_SCORE
+import com.pc.studyjapanesen5.presentation.game.result.ResultFragment.Companion.KEY_GAME_UNIT
 import com.pc.studyjapanesen5.presentation.main.MainActivity
+import com.pc.studyjapanesen5.presentation.viewcustom.AlertCommonDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.Locale
 
@@ -25,19 +31,36 @@ class VocabularyGameFragment :
     private val args by navArgs<VocabularyGameFragmentArgs>()
     private var answer = ""
     private var count = 0
+    private var unit = 0
 
     override fun setupViews() {
         textToSpeech = TextToSpeech(requireContext(), this)
         viewBinding.btnCheckAnswer.isEnabled = false
         viewBinding.btnBackGame.click {
-            val intent = Intent(activity, MainActivity::class.java)
-            startActivity(intent)
+            showDialogConfirm()
         }
+        unit = args.unit
         onClickAnswer()
     }
 
+    private fun showDialogConfirm() {
+        AlertCommonDialog(requireContext())
+            .setOnClickYesListener {
+                val intent = Intent(activity, MainActivity::class.java)
+                val bundle = Bundle()
+                bundle.putBoolean(MainActivity.FROM_GAME, true)
+                intent.putExtras(bundle)
+                startActivity(intent)
+                activity?.finish()
+            }
+            .setOnClickNoListener {
+                it.dismiss()
+            }
+            .show()
+    }
+
     override fun initData() {
-        viewModel.getVocabularyGame(args.unit)
+        viewModel.getVocabularyGame(unit)
     }
 
     override fun observeData() {
@@ -56,7 +79,14 @@ class VocabularyGameFragment :
                     bindQuestionAndAnswer(count, questionData)
                     refreshData(true)
                 } else {
-                    navigate(R.id.resultFragmentV)
+                    viewBinding.progressBarGame.progress = 0
+                    val intent = Intent(activity, ResultActivity::class.java)
+                    val bundle = Bundle()
+                    bundle.putInt(KEY_GAME_SCORE, 80)
+                    bundle.putInt(KEY_GAME_UNIT, unit)
+                    intent.putExtras(bundle)
+                    startActivity(intent)
+                    activity?.finish()
                 }
             } else {
                 Toast.makeText(context, "wrong", Toast.LENGTH_SHORT).show()

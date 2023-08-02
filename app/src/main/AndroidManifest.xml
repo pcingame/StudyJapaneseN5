@@ -16,10 +16,13 @@
         android:theme="@style/Theme.EnglishShuffle"
         tools:targetApi="tiramisu">
         <activity
-            android:name=".presentation.game.VocabularyGameActivity"
+            android:name=".presentation.game.result.ResultActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.game.AlphabetGameActivity"
+            android:name=".presentation.game.vocabulary.VocabularyGameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.game.alphabet.AlphabetGameActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.main.MainActivity"

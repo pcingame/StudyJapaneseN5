@@ -1,5 +1,7 @@
-package com.pc.studyjapanesen5.presentation.game
+package com.pc.studyjapanesen5.presentation.game.alphabet
 
+import android.content.Intent
+import android.os.Bundle
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.pc.studyjapanesen5.R
@@ -10,31 +12,55 @@ import com.pc.studyjapanesen5.databinding.FragmentAlphabetGameBinding
 import com.pc.studyjapanesen5.databinding.ItemAlphabetAnswerBinding
 import com.pc.studyjapanesen5.di.App
 import com.pc.studyjapanesen5.domain.model.AlphabetQuestionModel
+import com.pc.studyjapanesen5.presentation.game.GameFragment
+import com.pc.studyjapanesen5.presentation.game.GameViewModel
+import com.pc.studyjapanesen5.presentation.game.result.ResultActivity
+import com.pc.studyjapanesen5.presentation.game.result.ResultFragment.Companion.KEY_GAME_SCORE
+import com.pc.studyjapanesen5.presentation.game.result.ResultFragment.Companion.KEY_GAME_TYPE
+import com.pc.studyjapanesen5.presentation.game.result.ResultFragment.Companion.KEY_RESULT_ALPHABET
+import com.pc.studyjapanesen5.presentation.main.MainActivity
+import com.pc.studyjapanesen5.presentation.viewcustom.AlertCommonDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AlphabetGameFragment :
     BaseFragment<FragmentAlphabetGameBinding, GameViewModel>(FragmentAlphabetGameBinding::inflate) {
     override val viewModel by viewModel<GameViewModel>()
 
-    private val gameType =
-        activity?.intent?.extras?.getString(GameFragment.ALPHABET_GAME) ?: HIRAGANA_TYPE
-
     private var answer = ""
     private var count = 0
     private var totalMark = 0
+    private var gameType = ""
 
     override fun setupViews() {
         super.setupViews()
         viewBinding.btnCheckAnswer.isEnabled = false
         viewBinding.btnBackGuessGame.click {
-            navigate(R.id.gameFragment)
-            //requireActivity().onBackPressedDispatcher.onBackPressed()
-            onDestroyView()
+            showDialogConfirm()
         }
         onClickAnswer()
     }
 
+    private fun showDialogConfirm() {
+        AlertCommonDialog(requireContext())
+            .setOnClickYesListener {
+                val intent = Intent(activity, MainActivity::class.java)
+                val bundle = Bundle()
+                bundle.putBoolean(MainActivity.FROM_GAME, true)
+                intent.putExtras(bundle)
+                startActivity(intent)
+                activity?.finish()
+            }
+            .setOnClickNoListener {
+                it.dismiss()
+            }
+            .show()
+    }
+
     override fun initData() {
+        gameType =
+            activity?.intent?.extras?.getString(GameFragment.ALPHABET_GAME) ?: activity?.intent?.extras?.getString(
+                KEY_RESULT_ALPHABET
+            ) ?: HIRAGANA_TYPE
         viewModel.getAlphabetGameData(gameType)
     }
 
@@ -55,7 +81,13 @@ class AlphabetGameFragment :
                     bindQuestionAndAnswer(count, questionData)
                     refreshData(true)
                 } else {
-                    navigate(R.id.resultFragmentA)
+                    val intent = Intent(activity, ResultActivity::class.java)
+                    val bundle = Bundle()
+                    bundle.putInt(KEY_GAME_SCORE, 80)
+                    bundle.putString(KEY_GAME_TYPE, gameType)
+                    intent.putExtras(bundle)
+                    startActivity(intent)
+                    activity?.finish()
                 }
             } else {
                 Toast.makeText(context, "wrong", Toast.LENGTH_SHORT).show()

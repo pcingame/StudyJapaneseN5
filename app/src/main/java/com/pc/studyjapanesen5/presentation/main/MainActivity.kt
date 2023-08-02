@@ -25,9 +25,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     private val blockPopBackStackFragment =
         setOf(R.id.homeFragment, R.id.alphabetFragment, R.id.gameFragment)
 
+    private var isFromGame = false
+
 
     override fun setupViews() {
         supportActionBar?.hide()
+        isFromGame = this.intent.extras?.getBoolean(FROM_GAME, false) ?: false
         initNavigation()
     }
 
@@ -40,7 +43,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             val isVisible = destination.id in mainFragmentIdSet
             viewBinding.mainBottomNav.isVisible = isVisible
         }
-        viewBinding.mainBottomNav.selectedItemId = R.id.homeFragment
+        viewBinding.mainBottomNav.selectedItemId =
+            if (isFromGame) R.id.gameFragment else R.id.homeFragment
+        isFromGame = false
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -52,5 +57,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     override fun onBackPressed() {
         if (navController.currentDestination?.id in blockPopBackStackFragment) return
         super.onBackPressed()
+    }
+
+    companion object {
+        const val FROM_GAME = "FROM_GAME"
     }
 }

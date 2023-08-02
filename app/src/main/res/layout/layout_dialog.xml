@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/common_dialog_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_16"
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/dp_24">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/dialog_mess"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_size_24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        android:orientation="horizontal"
+        android:paddingVertical="@dimen/dp_8"
+        android:paddingHorizontal="@dimen/dp_16"
+        android:weightSum="2">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDialogNo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:background="@drawable/background_dialog_yes"
+            android:text="@string/dialog_yes"
+            android:textSize="@dimen/_18ssp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDialogYes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_weight="1"
+            android:background="@drawable/background_dialog_no"
+            android:text="@string/dialog_no"
+            android:textSize="@dimen/_18ssp" />
+
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

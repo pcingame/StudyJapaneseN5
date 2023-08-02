@@ -7,7 +7,7 @@
     android:overScrollMode="never"
     android:paddingHorizontal="@dimen/dp_8"
     android:paddingVertical="@dimen/dp_8"
-    tools:context=".presentation.detailVocabulary.DetailVocabularyFragment">
+    tools:context=".presentation.home.DetailVocabularyFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"

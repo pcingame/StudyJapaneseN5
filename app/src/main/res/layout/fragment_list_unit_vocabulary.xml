@@ -7,7 +7,7 @@
     android:layout_marginBottom="@dimen/dp_16"
     android:layout_marginHorizontal="@dimen/dp_12"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.game.ListUnitVocabularyFragment">
+    tools:context=".presentation.game.vocabulary.ListUnitVocabularyFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvUnitGame"

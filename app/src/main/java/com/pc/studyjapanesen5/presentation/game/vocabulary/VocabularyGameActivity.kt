@@ -1,4 +1,4 @@
-package com.pc.studyjapanesen5.presentation.game
+package com.pc.studyjapanesen5.presentation.game.vocabulary
 
 import androidx.navigation.fragment.NavHostFragment
 import com.pc.studyjapanesen5.R
@@ -10,10 +10,6 @@ class VocabularyGameActivity :
 
     private val navVocabularyHostFragment by lazy {
         supportFragmentManager.findFragmentById(R.id.navAlphabetHostFragment) as NavHostFragment
-    }
-
-    private val navController by lazy {
-        navVocabularyHostFragment.navController
     }
 
     override fun setupViews() {

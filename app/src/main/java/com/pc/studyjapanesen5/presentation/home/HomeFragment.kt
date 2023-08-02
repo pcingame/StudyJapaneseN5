@@ -5,7 +5,6 @@ import com.pc.studyjapanesen5.base.BaseFragment
 import com.pc.studyjapanesen5.base.recyclerview.SimpleListAdapter
 import com.pc.studyjapanesen5.databinding.FragmentHomeBinding
 import com.pc.studyjapanesen5.databinding.ItemUnitPlusBinding
-import com.pc.studyjapanesen5.presentation.detailVocabulary.DetailVocabularyFragmentArgs
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment :

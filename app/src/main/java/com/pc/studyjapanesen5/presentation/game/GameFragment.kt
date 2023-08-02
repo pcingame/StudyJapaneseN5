@@ -10,6 +10,8 @@ import com.pc.studyjapanesen5.common.Constant.VocabularyType.ALL_TYPE
 import com.pc.studyjapanesen5.common.Constant.VocabularyType.ONE_TYPE
 import com.pc.studyjapanesen5.common.extension.click
 import com.pc.studyjapanesen5.databinding.FragmentGameBinding
+import com.pc.studyjapanesen5.presentation.game.alphabet.AlphabetGameActivity
+import com.pc.studyjapanesen5.presentation.game.vocabulary.VocabularyGameActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class GameFragment :
