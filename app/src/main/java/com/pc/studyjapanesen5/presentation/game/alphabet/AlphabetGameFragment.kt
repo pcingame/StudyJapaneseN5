@@ -2,9 +2,11 @@ package com.pc.studyjapanesen5.presentation.game.alphabet
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
+import com.pc.studyjapanesen5.common.Constant
 import com.pc.studyjapanesen5.common.Constant.AlphabetType.HIRAGANA_TYPE
 import com.pc.studyjapanesen5.common.extension.click
 import com.pc.studyjapanesen5.databinding.FragmentAlphabetGameBinding
@@ -27,7 +29,7 @@ class AlphabetGameFragment :
 
     private var answer = ""
     private var count = 0
-    private var totalMark = 25
+    private var totalMark = 100
     private var gameType = ""
 
     override fun setupViews() {
@@ -36,6 +38,13 @@ class AlphabetGameFragment :
         viewBinding.btnBackGuessGame.click {
             showDialogConfirm()
         }
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                showDialogConfirm()
+            }
+
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(callback)
         onClickAnswer()
     }
 
@@ -83,7 +92,7 @@ class AlphabetGameFragment :
                 count += 1
             }
 
-            if (count < 5) {
+            if (count < Constant.AlphabetType.NUMBER_OF_QUESTION_ALPHABET) {
                 bindQuestionAndAnswer(count, questionData)
                 refreshData(true)
             } else {

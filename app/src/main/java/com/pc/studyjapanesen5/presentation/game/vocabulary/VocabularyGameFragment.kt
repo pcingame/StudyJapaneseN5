@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.view.View
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.navArgs
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
+import com.pc.studyjapanesen5.common.Constant
 import com.pc.studyjapanesen5.common.extension.click
 import com.pc.studyjapanesen5.databinding.FragmentVocabularyGameBinding
 import com.pc.studyjapanesen5.databinding.ItemVocabularyGameAnswerBinding
@@ -40,6 +42,13 @@ class VocabularyGameFragment :
         viewBinding.btnBackGame.click {
             showDialogConfirm()
         }
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                showDialogConfirm()
+            }
+
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(callback)
         unit = args.unit
         onClickAnswer()
     }
@@ -53,6 +62,7 @@ class VocabularyGameFragment :
                 intent.putExtras(bundle)
                 startActivity(intent)
                 activity?.finish()
+                it.dismiss()
             }
             .setOnClickNoListener {
                 it.dismiss()
@@ -80,7 +90,7 @@ class VocabularyGameFragment :
                 count += 1
                 totalScore -= 10
             }
-            if (count < 5) {
+            if (count < Constant.VocabularyType.NUMBER_OF_QUESTION_ALPHABET) {
                 bindQuestionAndAnswer(count, questionData)
                 refreshData(true)
             } else {
