@@ -14,5 +14,4 @@ class AlphabetGameActivity : BaseActivity<ActivityAlphabetGameBinding>(ActivityA
     override fun setupViews() {
         supportActionBar?.hide()
     }
-
 }

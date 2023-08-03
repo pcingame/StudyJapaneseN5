@@ -2,7 +2,6 @@ package com.pc.studyjapanesen5.presentation.game.alphabet
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
@@ -28,7 +27,7 @@ class AlphabetGameFragment :
 
     private var answer = ""
     private var count = 0
-    private var totalMark = 0
+    private var totalMark = 25
     private var gameType = ""
 
     override fun setupViews() {
@@ -49,6 +48,7 @@ class AlphabetGameFragment :
                 intent.putExtras(bundle)
                 startActivity(intent)
                 activity?.finish()
+                it.dismiss()
             }
             .setOnClickNoListener {
                 it.dismiss()
@@ -73,24 +73,27 @@ class AlphabetGameFragment :
     private fun bindData(questionData: List<AlphabetQuestionModel>) {
         bindQuestionAndAnswer(count, questionData)
         viewBinding.btnCheckAnswer.click {
+
+            viewBinding.progressBarGame.progress += 1
+
             if (answer == questionData[count].correctAnswer) {
                 count += 1
-                totalMark += 5
-                viewBinding.progressBarGame.progress += 1
-                if (count < 5) {
-                    bindQuestionAndAnswer(count, questionData)
-                    refreshData(true)
-                } else {
-                    val intent = Intent(activity, ResultActivity::class.java)
-                    val bundle = Bundle()
-                    bundle.putInt(KEY_GAME_SCORE, 80)
-                    bundle.putString(KEY_GAME_TYPE, gameType)
-                    intent.putExtras(bundle)
-                    startActivity(intent)
-                    activity?.finish()
-                }
             } else {
-                Toast.makeText(context, "wrong", Toast.LENGTH_SHORT).show()
+                totalMark -= 5
+                count += 1
+            }
+
+            if (count < 5) {
+                bindQuestionAndAnswer(count, questionData)
+                refreshData(true)
+            } else {
+                val intent = Intent(activity, ResultActivity::class.java)
+                val bundle = Bundle()
+                bundle.putInt(KEY_GAME_SCORE, totalMark)
+                bundle.putString(KEY_GAME_TYPE, gameType)
+                intent.putExtras(bundle)
+                startActivity(intent)
+                activity?.finish()
             }
         }
     }

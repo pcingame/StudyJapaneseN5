@@ -32,6 +32,7 @@ class VocabularyGameFragment :
     private var answer = ""
     private var count = 0
     private var unit = 0
+    private var totalScore = 100
 
     override fun setupViews() {
         textToSpeech = TextToSpeech(requireContext(), this)
@@ -72,24 +73,25 @@ class VocabularyGameFragment :
     private fun bindData(questionData: List<VocabularyQuestionModel>) {
         bindQuestionAndAnswer(count, questionData)
         viewBinding.btnCheckAnswer.click {
+            viewBinding.progressBarGame.progress += 1
             if (answer == questionData[count].correctAnswer) {
                 count += 1
-                viewBinding.progressBarGame.progress += 1
-                if (count < 5) {
-                    bindQuestionAndAnswer(count, questionData)
-                    refreshData(true)
-                } else {
-                    viewBinding.progressBarGame.progress = 0
-                    val intent = Intent(activity, ResultActivity::class.java)
-                    val bundle = Bundle()
-                    bundle.putInt(KEY_GAME_SCORE, 80)
-                    bundle.putInt(KEY_GAME_UNIT, unit)
-                    intent.putExtras(bundle)
-                    startActivity(intent)
-                    activity?.finish()
-                }
             } else {
-                Toast.makeText(context, "wrong", Toast.LENGTH_SHORT).show()
+                count += 1
+                totalScore -= 10
+            }
+            if (count < 5) {
+                bindQuestionAndAnswer(count, questionData)
+                refreshData(true)
+            } else {
+                viewBinding.progressBarGame.progress = 0
+                val intent = Intent(activity, ResultActivity::class.java)
+                val bundle = Bundle()
+                bundle.putInt(KEY_GAME_SCORE, totalScore)
+                bundle.putInt(KEY_GAME_UNIT, unit)
+                intent.putExtras(bundle)
+                startActivity(intent)
+                activity?.finish()
             }
         }
     }
