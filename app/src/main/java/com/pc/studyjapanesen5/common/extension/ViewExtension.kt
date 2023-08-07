@@ -15,7 +15,9 @@ import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.pc.studyjapanesen5.di.App
+import java.lang.Exception
 
 private var lastTimeClicked = 0L
 private var lastTimeClickedId = 0
@@ -116,5 +118,13 @@ fun TextView.setTextNullable(text: Any?) {
         // else return empty
         else -> this.text = ""
     }
+}
+
+fun log(message: String) {
+    FirebaseCrashlytics.getInstance().log(message)
+}
+
+fun logException(exception: Exception) {
+    FirebaseCrashlytics.getInstance().recordException(exception)
 }
 
