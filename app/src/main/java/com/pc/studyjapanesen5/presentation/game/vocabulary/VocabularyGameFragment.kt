@@ -181,7 +181,7 @@ class VocabularyGameFragment :
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
-            val result = textToSpeech.setLanguage(Locale.JAPAN)
+            val result = textToSpeech.setLanguage(Locale.JAPANESE)
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 Toast.makeText(requireContext(), "Language not supported", Toast.LENGTH_SHORT)
                     .show()

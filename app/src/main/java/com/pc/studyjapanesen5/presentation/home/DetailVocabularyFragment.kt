@@ -3,6 +3,7 @@ package com.pc.studyjapanesen5.presentation.home
 import android.speech.tts.TextToSpeech
 import android.view.View
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.navArgs
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
@@ -54,7 +55,7 @@ class DetailVocabularyFragment :
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
-            val result = textToSpeech.setLanguage(Locale.JAPAN)
+            val result = textToSpeech.setLanguage(Locale.JAPANESE)
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 Toast.makeText(requireContext(), "Language not supported", Toast.LENGTH_SHORT)
                     .show()

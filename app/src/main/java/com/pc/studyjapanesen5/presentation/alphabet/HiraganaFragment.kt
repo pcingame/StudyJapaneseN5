@@ -143,7 +143,7 @@ class HiraganaFragment :
         viewBinding.layoutHiraganaSingle.layoutTitleAlphabet.tvDetailType.isVisible = true
         viewBinding.layoutHiraganaSingle.layoutTitleAlphabet.tvDetailExplain.isVisible = true
         viewBinding.layoutHiraganaSingle.layoutTitleAlphabet.tvDetailType.text =
-            getString(R.string.learn, getString(R.string.katakana))
+            getString(R.string.learn, getString(R.string.hiragana))
         viewBinding.layoutHiraganaSingle.layoutTitleAlphabet.tvDetailExplain.text =
             getString(R.string.main_explain_hira)
     }
@@ -188,7 +188,7 @@ class HiraganaFragment :
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
-            val result = textToSpeech.setLanguage(Locale.JAPAN)
+            val result = textToSpeech.setLanguage(Locale.JAPANESE)
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 Toast.makeText(requireContext(), "Language not supported", Toast.LENGTH_SHORT)
                     .show()

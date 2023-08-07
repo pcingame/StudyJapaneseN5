@@ -23,18 +23,18 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/imgSound"
             android:textColor="@color/purple_700"
             android:textSize="@dimen/_16ssp"
-            android:layout_toStartOf="@+id/imgSound"
             tools:text="@string/hiragana" />
 
         <ImageView
-            android:contentDescription="@string/sound"
-            android:layout_alignParentTop="true"
             android:id="@+id/imgSound"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
+            android:contentDescription="@string/sound"
             android:src="@drawable/sound_demo" />
     </RelativeLayout>
 
