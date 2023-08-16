@@ -52,4 +52,6 @@
     <string name="dialog_mess">Bạn muốn thoát trò chơi à ?</string>
     <string name="dialog_no">Nghỉ thôi!</string>
     <string name="dialog_yes">Chơi tiếp!</string>
+    <string name="understand">OK! Tôi hiểu rồi</string>
+    <string name="instruction_turn_on_voice">Ngôn ngữ không được hỗ trợ \nVui lòng vào Cài đặt > Quản lý chung > Văn bản sang giọng nói > Ngôn ngữ > Tải và cài đặt Tiếng Nhật</string>
 </resources>
