@@ -185,10 +185,23 @@ class VocabularyGameFragment :
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 Toast.makeText(requireContext(), "Language not supported", Toast.LENGTH_SHORT)
                     .show()
+            } else {
+                showInstructionDialog()
             }
         } else {
             Toast.makeText(requireContext(), "Initialization failed", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun showInstructionDialog() {
+        AlertCommonDialog(requireContext())
+            .setContentTextSize(Constant.ViewSize.TEXT_SIZE_INSTRUCTION)
+            .isGameDialog(false)
+            .setContent(R.string.instruction_turn_on_voice)
+            .setOnClickYesSystemListener {
+                it.dismiss()
+            }
+            .show()
     }
 
     override fun onDestroy() {

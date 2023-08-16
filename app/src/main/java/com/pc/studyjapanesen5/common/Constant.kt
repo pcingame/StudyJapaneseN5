@@ -18,4 +18,15 @@ object Constant {
         const val ONE_TYPE = 99
         const val NUMBER_OF_QUESTION_ALPHABET = 10
     }
+
+    object ViewSize {
+        const val SIZE_12F = 12F
+        const val SIZE_13F = 13F
+        const val SIZE_14F = 14F
+        const val SIZE_15F = 15F
+        const val SIZE_16F = 16F
+        const val SIZE_17F = 17F
+        const val SIZE_18F = 18F
+        const val TEXT_SIZE_INSTRUCTION = 18F
+    }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/common_dialog_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -12,17 +13,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        android:paddingHorizontal="@dimen/dp_8"
         android:text="@string/dialog_mess"
         android:textColor="@color/black"
         android:textSize="@dimen/font_size_24sp" />
 
     <LinearLayout
+        android:id="@+id/layoutButtonGame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_16"
         android:orientation="horizontal"
-        android:paddingVertical="@dimen/dp_8"
         android:paddingHorizontal="@dimen/dp_16"
+        android:paddingVertical="@dimen/dp_8"
         android:weightSum="2">
 
         <androidx.appcompat.widget.AppCompatButton
@@ -31,9 +34,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dp_20"
             android:layout_weight="1"
-            android:textColor="@color/white"
             android:background="@drawable/background_dialog_yes"
             android:text="@string/dialog_yes"
+            android:textColor="@color/white"
             android:textSize="@dimen/_18ssp" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -47,5 +50,18 @@
             android:textSize="@dimen/_18ssp" />
 
     </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/layoutButtonDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_16"
+        android:background="@drawable/background_dialog_yes"
+        android:paddingHorizontal="@dimen/dp_16"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_18ssp"
+        android:visibility="visible"
+        tools:text="@string/understand" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -3,15 +3,16 @@ package com.pc.studyjapanesen5.presentation.home
 import android.speech.tts.TextToSpeech
 import android.view.View
 import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.navigation.fragment.navArgs
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
 import com.pc.studyjapanesen5.base.recyclerview.SimpleListAdapter
+import com.pc.studyjapanesen5.common.Constant
 import com.pc.studyjapanesen5.common.extension.click
 import com.pc.studyjapanesen5.databinding.FragmentDetailVocabularyBinding
 import com.pc.studyjapanesen5.databinding.ItemVocabularyBinding
 import com.pc.studyjapanesen5.domain.model.VocabularyModel
+import com.pc.studyjapanesen5.presentation.viewcustom.AlertCommonDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.Locale
 
@@ -57,12 +58,22 @@ class DetailVocabularyFragment :
         if (status == TextToSpeech.SUCCESS) {
             val result = textToSpeech.setLanguage(Locale.JAPANESE)
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                Toast.makeText(requireContext(), "Language not supported", Toast.LENGTH_SHORT)
-                    .show()
+                showInstructionDialog()
             }
         } else {
             Toast.makeText(requireContext(), "Initialization failed", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun showInstructionDialog() {
+        AlertCommonDialog(requireContext())
+            .setContentTextSize(Constant.ViewSize.TEXT_SIZE_INSTRUCTION)
+            .isGameDialog(false)
+            .setContent(R.string.instruction_turn_on_voice)
+            .setOnClickYesSystemListener {
+                it.dismiss()
+            }
+            .show()
     }
 
     override fun onDestroy() {

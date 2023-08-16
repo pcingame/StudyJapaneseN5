@@ -6,6 +6,7 @@ import androidx.core.view.isVisible
 import com.pc.studyjapanesen5.R
 import com.pc.studyjapanesen5.base.BaseFragment
 import com.pc.studyjapanesen5.base.recyclerview.SimpleListAdapter
+import com.pc.studyjapanesen5.common.Constant
 import com.pc.studyjapanesen5.common.Constant.AlphabetType.COMBO_TYPE
 import com.pc.studyjapanesen5.common.Constant.AlphabetType.DAKUON_TYPE
 import com.pc.studyjapanesen5.common.Constant.AlphabetType.LONG_VOWEL_TYPE
@@ -14,6 +15,7 @@ import com.pc.studyjapanesen5.common.Constant.AlphabetType.SMALL_TYPE
 import com.pc.studyjapanesen5.databinding.FragmentHiraganaBinding
 import com.pc.studyjapanesen5.databinding.ItemAlphabetBinding
 import com.pc.studyjapanesen5.domain.model.AlphabetModel
+import com.pc.studyjapanesen5.presentation.viewcustom.AlertCommonDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.Locale
 
@@ -190,12 +192,22 @@ class HiraganaFragment :
         if (status == TextToSpeech.SUCCESS) {
             val result = textToSpeech.setLanguage(Locale.JAPANESE)
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                Toast.makeText(requireContext(), "Language not supported", Toast.LENGTH_SHORT)
-                    .show()
+                showInstructionDialog()
             }
         } else {
             Toast.makeText(requireContext(), "Initialization failed", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun showInstructionDialog() {
+        AlertCommonDialog(requireContext())
+            .setContentTextSize(Constant.ViewSize.TEXT_SIZE_INSTRUCTION)
+            .isGameDialog(false)
+            .setContent(R.string.instruction_turn_on_voice)
+            .setOnClickYesSystemListener {
+                it.dismiss()
+            }
+            .show()
     }
 
     override fun onDestroy() {
